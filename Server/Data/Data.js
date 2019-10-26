@@ -1,5 +1,4 @@
-module.exports ={
-    DATA:[
+module.exports =[
         {
             "id":1,
             "name": "5 mẫu thiết kế nội thất cao Cấp",
@@ -72,4 +71,3 @@ module.exports ={
         }
       
       ] 
-}

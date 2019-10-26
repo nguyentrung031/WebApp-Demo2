@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem';
-import * as actions from '../../Store/action/action';
+// import * as actions from '../../Store/Action/action';
+import {getDataItem} from '../../Store/Action/itemAction';
 import { connect } from 'react-redux';
-import * as callApi from '../../Router/RouterAPI'
 import ListNewItem from './ListNewItem';
+import PropTypes from 'prop-types';
 class Tendency extends Component {
-  componentWillMount() {
-    callApi.Params('/api/Tendency', 'get', null).then(response => this.props.getData(response.data))
+  static propTypes = {
+    getDataItem: PropTypes.func.isRequired,
+    List: PropTypes.object.isRequired,
+  };
+  componentDidMount() {
+    this.props.getDataItem();
   }
   render() {
-    const {List} = this.props;
+    const {List} = this.props
     return (
       <main>
         <div className="container bread-wrapper">
@@ -52,7 +57,7 @@ class Tendency extends Component {
           <div className="container">
             <div className="row Content-new">
               {
-                List.DATA.map((value,key) => {
+                List.items.map((value,key) => {
                   if(value.id === 8){
                     return (
                       <div className="col-md-6 i1" key={key}>
@@ -70,24 +75,22 @@ class Tendency extends Component {
                     )
                   }
                   else{
-                    return false;
+                    return null;
                   }
                 })
               }
-              
               <div className="col-md-6 i2">
                 <div className="card-2">
                  {
-                   List.DATA.map((value,key) => {
+                   List.items.map((value,key) => {
                      if(value.id >= 7){
                        return <ListNewItem key={key} Name={value.name} Image={value.img}/>
                      }
                      else{
-                       return false;
+                       return null;
                      }
                    })
-                 }
-                    
+                 }                    
                 </div>
               </div>
             </div>
@@ -98,7 +101,7 @@ class Tendency extends Component {
         <section className="xuhuong">
           <div className="container">
             {
-              List.DATA.map((value,key) => {
+             List.items.map((value,key) => {
                return <ListItem key={key} Name={value.name} Content={value.content} Date={value.date} Image={value.img}/>
               })
             }
@@ -130,11 +133,4 @@ const mapStateToProps = (state, ownProps) => {
     List: state.List
   }
 }
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    getData: (data) => {
-      dispatch(actions.getData({data: data}))
-    }
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Tendency);
+export default connect(mapStateToProps, {getDataItem})(Tendency);

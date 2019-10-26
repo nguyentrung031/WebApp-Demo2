@@ -1,3 +1,4 @@
 export default {
-  GET_DATA: 'GET_DATA'
+  GET_DATA: 'GET_DATA',
+  ITEMS_LOADING: 'ITEMS_LOADING'
 }
