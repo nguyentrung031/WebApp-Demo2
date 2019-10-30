@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem';
-// import * as actions from '../../Store/Action/action';
 import {getDataItem} from '../../Store/Action/itemAction';
 import { connect } from 'react-redux';
 import ListNewItem from './ListNewItem';
@@ -14,7 +13,7 @@ class Tendency extends Component {
     this.props.getDataItem();
   }
   render() {
-    const {List} = this.props
+    const {items} = this.props.List;
     return (
       <main>
         <div className="container bread-wrapper">
@@ -57,12 +56,12 @@ class Tendency extends Component {
           <div className="container">
             <div className="row Content-new">
               {
-                List.items.map((value,key) => {
+                items.map((value,key) => {
                   if(value.id === 8){
                     return (
                       <div className="col-md-6 i1" key={key}>
                         <div className="img-1">
-                          <a href="/">
+                          <a href={"/Detail/"+ key}>
                             <img src={value.img} alt="i1" />
                           </a>
                         </div> 
@@ -82,9 +81,9 @@ class Tendency extends Component {
               <div className="col-md-6 i2">
                 <div className="card-2">
                  {
-                   List.items.map((value,key) => {
+                   items.map((value,key) => {
                      if(value.id >= 7){
-                       return <ListNewItem key={key} Name={value.name} Image={value.img}/>
+                       return <ListNewItem key={key} Id={key} Name={value.name} Image={value.img}/>
                      }
                      else{
                        return null;
@@ -101,8 +100,8 @@ class Tendency extends Component {
         <section className="xuhuong">
           <div className="container">
             {
-             List.items.map((value,key) => {
-               return <ListItem key={key} Name={value.name} Content={value.content} Date={value.date} Image={value.img}/>
+             items.map((value,key) => {
+               return <ListItem key={key} Id={key} Name={value.name} Content={value.content} Date={value.date} Image={value.img}/>
               })
             }
             <nav aria-label="Page navigation example">

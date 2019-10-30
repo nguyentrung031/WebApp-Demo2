@@ -70,4 +70,4 @@ module.exports =[
             "img": "/img/i2.jpg"
         }
       
-      ] 
+] 
