@@ -1065,8 +1065,6 @@ img.detail-img {
     height: 40px;
     background-color: #4db2ec;
     z-index: 9999;
-    visibility: hidden;
-    opacity: 0;
 }
 
 i.fas.fa-angle-up {
