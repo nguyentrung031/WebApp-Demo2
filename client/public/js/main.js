@@ -1,25 +1,14 @@
-// slide
-$(document).ready(function () {
-    $('.Card-body-01').slick({
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        nextArrow: $('.td-next-prev-wrap .next'),
-        prevArrow: $('.td-next-prev-wrap .prev')
-    });
-});
 // hiệu ứng cuộn chuột
 $(document).ready(function() {
-    $(window).scroll(function(event) {
-       var pos_body = $('html,body').scrollTop();
-       if(pos_body>800){
-          $('.td-scroll-up').addClass('hien-ra');
-       }
-       else{
-          $('.td-scroll-up').removeClass('hien-ra');
-       }
-    });
+   $(window).scroll(function(event) {
+      var pos_body = $('html,body').scrollTop();
+      if(pos_body>800){
+         $('.td-scroll-up').addClass('hien-ra');
+      }
+      else{
+         $('.td-scroll-up').removeClass('hien-ra');
+      }
+   });
     $('.td-scroll-up').click((event) => {
        $('html,body').animate({scrollTop: 0},2480);
     });
