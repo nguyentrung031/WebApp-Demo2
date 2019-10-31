@@ -56,7 +56,7 @@ class Tendency extends Component {
                     return (
                       <div className="col-md-6 i1" key={key}>
                         <div className="img-1">
-                          <a href={`/Detail/ ${value.id}`}>
+                          <a href={`/Detail/${value.id}`}>
                             <img src={value.img} alt="i1" />
                           </a>
                         </div> 
@@ -78,10 +78,10 @@ class Tendency extends Component {
                  {
                    items.map((value,key) => {
                      if(value.id >= 7){
-                       return <ListNewItem key={key} Id={key} Name={value.name} Image={value.img}/>
+                      return <ListNewItem key={key} Id={key} Name={value.name} Image={value.img}/>
                      }
                      else{
-                       return null;
+                      return null;
                      }
                    })
                  }                    
@@ -95,9 +95,9 @@ class Tendency extends Component {
         <section className="xuhuong">
           <div className="container">
             {
-             items.map((value,key) => {
-               return <ListItem key={key} Id={key} Name={value.name} Content={value.content} Date={value.date} Image={value.img}/>
-              })
+             items.map((value,key) => 
+              <ListItem key={key} Id={key} Name={value.name} Content={value.content} Date={value.date} Image={value.img}/>
+              )
             }
             <nav aria-label="Page navigation example">
               <ul className="pagination" id="navi-01">

@@ -5,7 +5,7 @@ class ListNewItem extends Component {
     return (
       <div className="card-item">
         <div className="img-3">
-          <a href={`/Detail/ ${this.props.Id}`}>
+          <a href={`/Detail/${this.props.Id}`}>
             <img src={this.props.Image} alt="i1" />
           </a>
         </div> 
