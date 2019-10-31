@@ -3,7 +3,16 @@ import '../App.css';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import RouterURL from '../Router/RouterURL';
+import {getDataItem} from '../Store/Action/itemAction';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 class App extends Component {
+  static propTypes = {
+    getDataItem: PropTypes.func.isRequired,
+  };
+  componentDidMount() {
+    this.props.getDataItem();
+  }
   render() {
     return (
       <div>
@@ -14,4 +23,8 @@ class App extends Component {
     );
   }
 }
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  return {
+  }
+}
+export default connect(mapStateToProps,{getDataItem})(App);

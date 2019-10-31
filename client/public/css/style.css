@@ -148,6 +148,12 @@ a.nav-link:hover {
     visibility: visible;
     opacity: 1;
 }
+.dropdow-search.dropdown-menu.show {
+    transform: translate3d(-270px, 56px, 0px) !important;
+}
+.dropdown-toggle::after{
+    display: none !important;
+}
 
 li.nav-item:hover a.nav-link:before {visibility: visible;opacity: 1;}
 /* .search-body {
@@ -161,6 +167,9 @@ li.nav-item:hover a.nav-link:before {visibility: visible;opacity: 1;}
 }
 /* ---------------------MAIN-------------- */
 /* ---------Section1 new-------- */
+ul.wrap-drop.dropdown-menu.show {
+    transform: translate3d(-51px, 21px, 0px) !important;
+}
 .Title-new{
     display: flex;
     margin: 20px 0;

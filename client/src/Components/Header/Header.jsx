@@ -55,10 +55,10 @@ class Header extends Component {
                 </nav>
                 </div>
                 <div className="search-item">
-                <a href="." id="search01">
+                <a href="#search" id="search01" className="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
                     <i className="fas fa-search" />
                 </a>
-                <div className="dropdow-search">
+                <div className="dropdow-search dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <form className="form-inline">
                     <input className="form-control" type="search" placeholder="nhập từ khóa" aria-label="Search" />
                     <button className="btn btn-outline-success" type="submit">tìm kiếm</button>

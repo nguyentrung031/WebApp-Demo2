@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem';
-import {getDataItem} from '../../Store/Action/itemAction';
 import { connect } from 'react-redux';
 import ListNewItem from './ListNewItem';
 import PropTypes from 'prop-types';
 class Tendency extends Component {
   static propTypes = {
-    getDataItem: PropTypes.func.isRequired,
     List: PropTypes.object.isRequired,
   };
-  componentDidMount() {
-    this.props.getDataItem();
-  }
   render() {
     const {items} = this.props.List;
     return (
@@ -28,10 +23,10 @@ class Tendency extends Component {
               <h2>Xu hướng</h2>
             </div>
             <div className="title-wrap-item">
-              <div className="wrap-item">
-                <small>Mới nhất <i className="fas fa-angle-down pr-2" /></small>
+              <div className="wrap-item" id="dropdownMenuButton" data-toggle="dropdown">
+                <small className="dropdown-toggle">Mới nhất <i className="fas fa-angle-down pr-2" /></small>
               </div>
-              <ul className="wrap-drop">
+              <ul className="wrap-drop dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li className="wrap-drop-item">
                   <a href="/">Mới nhất</a>
                 </li>
@@ -132,4 +127,4 @@ const mapStateToProps = (state, ownProps) => {
     List: state.List
   }
 }
-export default connect(mapStateToProps, {getDataItem})(Tendency);
+export default connect(mapStateToProps)(Tendency);
