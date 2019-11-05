@@ -5,7 +5,7 @@ var initialState = {
 };
 var myReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionType.GET_DATA:
+    case actionType.get_data_tendency:
       return {
         ...state,
         items: action.payload

@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 
 class Header extends Component {
   // xử lý hiệu ứng cuộn chuột Start
-  state = {
-    intervalId: 0,
-    thePosition: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      intervalId: 0,
+      thePosition: false
+    };
+  }
   componentDidMount() {
     document.addEventListener("scroll", () => {
       if (window.scrollY > 170) {

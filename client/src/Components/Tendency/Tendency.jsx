@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem';
 import { connect } from 'react-redux';
-import ListNewItem from './ListNewItem';
 import PropTypes from 'prop-types';
+import Skeleton from 'react-loading-skeleton';
+import ListNewItem from './ListNewItem';
 class Tendency extends Component {
   static propTypes = {
     List: PropTypes.object.isRequired,
@@ -57,13 +58,19 @@ class Tendency extends Component {
                       <div className="col-md-6 i1" key={key}>
                         <div className="img-1">
                           <a href={`/Detail/${value.id}`}>
-                            <img src={value.img} alt="i1" />
+                            {
+                              value.img ? (
+                                <img src={value.img} alt={value.name} />
+                              ) : (
+                                <Skeleton height={400}/>
+                              )
+                            }
                           </a>
                         </div> 
                         <div className="Title-1">
                           <small>Xu Hướng</small>
-                          <h3>{value.name} </h3>
-                          <span>{value.date}</span>
+                          <h3>{value.name || <Skeleton/>} </h3>
+                          <span>{value.date || <Skeleton/>}</span>
                         </div>
                       </div>
                     )

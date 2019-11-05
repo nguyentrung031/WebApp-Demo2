@@ -6,7 +6,7 @@ export const getDataItem = () => dispatch => {
     .get('/api/Tendency')
     .then(res =>
       dispatch({
-        type: actionType.GET_DATA,
+        type: actionType.get_data_tendency,
         payload: res.data
       })
     )

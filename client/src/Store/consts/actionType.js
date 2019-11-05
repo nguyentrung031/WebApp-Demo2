@@ -1,4 +1,3 @@
 export default {
-  GET_DATA: 'GET_DATA',
-  ITEMS_LOADING: 'ITEMS_LOADING'
+  get_data_tendency: 'GET_DATA_TENDENTCY'
 }
