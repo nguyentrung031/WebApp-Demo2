@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import ListItem from './ListItem';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Skeleton from 'react-loading-skeleton';
-import ListNewItem from './ListNewItem';
+import TendencyListNewItem from './TendencyListNewItem';
+import TendencyListItem from './TendencyListItem';
 class Tendency extends Component {
   static propTypes = {
     List: PropTypes.object.isRequired,
@@ -58,19 +57,13 @@ class Tendency extends Component {
                       <div className="col-md-6 i1" key={key}>
                         <div className="img-1">
                           <a href={`/Detail/${value.id}`}>
-                            {
-                              value.img ? (
-                                <img src={value.img} alt={value.name} />
-                              ) : (
-                                <Skeleton height={400}/>
-                              )
-                            }
+                            <img src={value.img} alt={value.name} />
                           </a>
                         </div> 
                         <div className="Title-1">
                           <small>Xu Hướng</small>
-                          <h3>{value.name || <Skeleton/>} </h3>
-                          <span>{value.date || <Skeleton/>}</span>
+                          <h3>{value.name} </h3>
+                          <span>{value.date}</span>
                         </div>
                       </div>
                     )
@@ -85,7 +78,7 @@ class Tendency extends Component {
                  {
                    items.map((value,key) => {
                      if(value.id >= 7){
-                      return <ListNewItem key={key} Id={key} Name={value.name} Image={value.img}/>
+                       return <TendencyListNewItem key={key} Id={key} Name={value.name} Image={value.img}/>
                      }
                      else{
                       return null;
@@ -103,7 +96,7 @@ class Tendency extends Component {
           <div className="container">
             {
              items.map((value,key) => 
-              <ListItem key={key} Id={key} Name={value.name} Content={value.content} Date={value.date} Image={value.img}/>
+              <TendencyListItem key={key} Id={key} Name={value.name} Content={value.content} Date={value.date} Image={value.img}/>
               )
             }
             <nav aria-label="Page navigation example">
