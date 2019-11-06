@@ -96,7 +96,7 @@ class Tendency extends Component {
           <div className="container">
             {
              items.map((value,key) => 
-              <TendencyListItem key={key} Id={key} Name={value.name} Content={value.content} Date={value.date} Image={value.img}/>
+              <TendencyListItem {...value} key={key}/>
               )
             }
             <nav aria-label="Page navigation example">

@@ -4,15 +4,15 @@ class TendencyListItem extends Component {
     return (
       <ul className="list-unstyled">
         <li className="media">
-          <a href={`/Detail/${this.props.Id}`}>
-            <img src={this.props.Image} className="mr-3 i1" alt={this.props.Name} />
+          <a href={`/Detail/${this.props.id}`}>
+            <img src={this.props.img} className="mr-3 i1" alt={this.props.name} />
           </a>
           <div className="media-body">
-            <a href={`/Detail/${this.props.Id}`}>
-              <h3 className="mt-0 mb-1">{this.props.Name}</h3>
+            <a href={`/Detail/${this.props.id}`}>
+              <h3 className="mt-0 mb-1">{this.props.name}</h3>
             </a>
-            <span>{this.props.Date}</span>
-            <p>{this.props.Content}</p>
+            <span>{this.props.date}</span>
+            <p>{this.props.content}</p>
           </div>
         </li>
       </ul>
