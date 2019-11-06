@@ -5,13 +5,13 @@ class TendencyListNewItem extends Component {
     return (
       <div className="card-item">
         <div className="img-3">
-          <a href={`/Detail/${this.props.Id}`}>
-            <img src={this.props.Image} alt={this.props.Name} />
+          <a href={`/Detail/${this.props.id}`}>
+            <img src={this.props.img} alt={this.props.name} />
           </a>
         </div> 
         <div className="Title-3">
-          <small>{"Xu Hướng"}</small>
-          <h6>{this.props.Name}</h6>
+          <small>Xu Hướng</small>
+          <h6>{this.props.name}</h6>
         </div>
       </div>
     );

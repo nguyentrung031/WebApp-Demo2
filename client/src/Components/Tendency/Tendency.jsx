@@ -78,7 +78,7 @@ class Tendency extends Component {
                  {
                    items.map((value,key) => {
                      if(value.id >= 7){
-                       return <TendencyListNewItem key={key} Id={key} Name={value.name} Image={value.img}/>
+                       return <TendencyListNewItem {...value} key={key}/>
                      }
                      else{
                       return null;
