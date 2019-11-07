@@ -72,7 +72,7 @@ class Header extends Component {
                         <a className="nav-link" href="/Style/">PHONG CÁCH</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="/KhongGian/">KHÔNG GIAN</a>
+                        <a className="nav-link" href="/Space/">KHÔNG GIAN</a>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link" href="/PhongThuy/">PHONG THỦY</a>

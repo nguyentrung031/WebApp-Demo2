@@ -18,5 +18,13 @@ export const getDataItem = () => dispatch => {
         payloadStyle: res.data
       })
     )
+  //api trang Space 
+  axios.get('/api/Space')
+    .then(res =>
+      dispatch({
+        type: actionType.get_data_space,
+        payloadSpace: res.data
+      })
+    )
 };
 
