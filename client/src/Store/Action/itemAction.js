@@ -26,12 +26,20 @@ export const getDataItem = () => dispatch => {
         payloadSpace: res.data
       })
     )
-  //api trang PengShui 
+  //api trang PengShui
   axios.get('/api/PengShui')
     .then(res =>
       dispatch({
         type: actionType.get_data_PengShui,
         payloadPengShui: res.data
+      })
+    )
+  //api trang Tips
+  axios.get('/api/Tips')
+    .then(res =>
+      dispatch({
+        type: actionType.get_data_Tips,
+        payloadTips: res.data
       })
     )
 };

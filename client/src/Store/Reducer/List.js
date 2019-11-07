@@ -25,6 +25,11 @@ var myReducer = (state = initialState, action) => {
         ...state,
         items: action.payloadPengShui
       };
+    case actionType.get_data_Tips:
+      return {
+        ...state,
+        items: action.payloadTips
+      };
     default:
       return state;
   }
