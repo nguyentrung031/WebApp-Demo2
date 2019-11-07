@@ -8,7 +8,7 @@ class Style extends Component {
     List: PropTypes.object.isRequired,
   };
   render() {
-    const {itemStyle} = this.props.List;
+    const {items} = this.props.List;
     return (
       <main>
         <div className="container bread-wrapper">
@@ -51,7 +51,7 @@ class Style extends Component {
           <div className="container">
             <div className="row Content-new">
               {
-                itemStyle.map((value,key) => {
+                items.map((value,key) => {
                   if(value.id === 8){
                     return (
                       <div className="col-md-6 i1" key={key}>
@@ -76,7 +76,7 @@ class Style extends Component {
               <div className="col-md-6 i2">
                 <div className="card-2">
                 {
-                  itemStyle.map((value,key) => {
+                  items.map((value,key) => {
                     if(value.id >= 7){
                       return <StyleListNewItem {...value} key={key}/>
                     }
@@ -95,7 +95,7 @@ class Style extends Component {
         <section className="xuhuong">
           <div className="container">
             {
-            itemStyle.map((value,key) => 
+            items.map((value,key) => 
               <StyleLisItem {...value} key={key}/>
               )
             }

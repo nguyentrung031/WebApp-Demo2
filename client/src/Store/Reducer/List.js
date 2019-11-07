@@ -2,7 +2,6 @@ import actionType from '../consts/actionType';
 
 var initialState = {
   items: [],
-  itemStyle: []
 };
 var myReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -14,7 +13,7 @@ var myReducer = (state = initialState, action) => {
     case actionType.get_data_style:
       return {
         ...state,
-        itemStyle: action.payloadStyle
+        items: action.payloadStyle
       };
     default:
       return state;
