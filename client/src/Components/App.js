@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
 import '../App.css';
-import axios from 'axios';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
+import RouterURL from '../Router/RouterURL';
+import {getDataItem} from '../Store/Action/itemAction';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state={
-      Data: ''
-    }
-  }
-  componentDidMount(){
-    axios.get('/api/helloworld')
-    .then(result => this.setState({Data: result.data.sayHi}))
+  static propTypes = {
+    getDataItem: PropTypes.func.isRequired,
+  };
+  componentDidMount() {
+    this.props.getDataItem();
   }
   render() {
     return (
       <div>
-        <h1>{this.state.Data}</h1>
+        <Header/>
+        <RouterURL/>
+        <Footer/>
       </div>
     );
   }
 }
-
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  return {
+  }
+}
+const mapDispatchToProps = {getDataItem}
+export default connect(mapStateToProps,mapDispatchToProps)(App);
