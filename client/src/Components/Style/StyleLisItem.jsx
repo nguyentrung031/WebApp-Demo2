@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 class StyleLisItem extends Component {
-	render() {
-		return (
-			<ul className="list-unstyled">
+  render() {
+    return (
+      <ul className="list-unstyled">
         <li className="media">
           <a href={`/Detail/${this.props.id}`}>
             <img src={this.props.img} className="mr-3 i1" alt={this.props.name} />
@@ -17,8 +17,8 @@ class StyleLisItem extends Component {
           </div>
         </li>
       </ul>
-		);
-	}
+    );
+  }
 }
 
 export default StyleLisItem;
