@@ -10,6 +10,9 @@ app.get('/', (req, res) => {
 app.get('/api/Tendency', (req, res) => {
   res.json(Data);
 });
+app.get('/api/Style', (req, res) => {
+  res.json(Data);
+});
 app.listen(5000, () => {
   console.log('App listening on port 5000')
 })
