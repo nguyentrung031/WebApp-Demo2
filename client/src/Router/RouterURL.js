@@ -4,6 +4,7 @@ import Home from '../Components/Home/Home';
 import Tendency from '../Components/Tendency/Tendency';
 import Style from '../Components/Style/Style';
 import Space from '../Components/Space/Space';
+import PengShui from '../Components/PengShui/PengShui';
 class RouterURL extends Component {
   render() {
     return (
@@ -14,6 +15,7 @@ class RouterURL extends Component {
             <Route path="/Tendency/" component={Tendency}/>
             <Route path="/Style/" component={Style}/>
             <Route path="/Space/" component={Space}/>
+            <Route path="/PengShui/" component={PengShui}/>
           </div>
         </Router>
       </div>
