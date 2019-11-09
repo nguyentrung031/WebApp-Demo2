@@ -1,7 +1,7 @@
 import actionType from '../consts/actionType';
 
 var initialState = {
-  items: []
+  items: [],
 };
 var myReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -9,6 +9,11 @@ var myReducer = (state = initialState, action) => {
       return {
         ...state,
         items: action.payload
+      };
+    case actionType.get_data_style:
+      return {
+        ...state,
+        items: action.payloadStyle
       };
     default:
       return state;
