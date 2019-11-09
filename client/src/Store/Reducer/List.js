@@ -20,6 +20,11 @@ var myReducer = (state = initialState, action) => {
         ...state,
         items: action.payloadSpace
       };
+    case actionType.get_data_PengShui:
+      return {
+        ...state,
+        items: action.payloadPengShui
+      };
     default:
       return state;
   }

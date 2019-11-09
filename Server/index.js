@@ -16,6 +16,9 @@ app.get('/api/Style', (req, res) => {
 app.get('/api/Space', (req, res) => {
   res.json(Data);
 });
+app.get('/api/PengShui', (req, res) => {
+  res.json(Data);
+});
 app.listen(5000, () => {
   console.log('App listening on port 5000')
 })
