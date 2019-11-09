@@ -78,7 +78,7 @@ class Header extends Component {
                         <a className="nav-link" href="/PengShui/">PHONG THỦY</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="/MeoVat/">MẸO VẶT</a>
+                        <a className="nav-link" href="/Tips/">MẸO VẶT</a>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link" href="/VatTu/">VẬT TƯ</a>
