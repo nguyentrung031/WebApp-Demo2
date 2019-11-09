@@ -15,6 +15,11 @@ var myReducer = (state = initialState, action) => {
         ...state,
         items: action.payloadStyle
       };
+    case actionType.get_data_space:
+      return {
+        ...state,
+        items: action.payloadSpace
+      };
     default:
       return state;
   }
