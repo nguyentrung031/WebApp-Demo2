@@ -17,6 +17,19 @@ img.mr-3.i1 {
 .card-2 {
     flex-wrap: wrap;
 }
+.row.xh-content .img {
+    width: 300px;
+}
+.row.xh-content .media img {
+    width: 100px;
+}
+.row.xh-content .img img {
+    width: 100%;
+    height: 200px;
+}
+.vattu-item-tow img {
+    width: 100px;
+}
 /* ---------------------- */
 /* --------HEADER-------- */
 

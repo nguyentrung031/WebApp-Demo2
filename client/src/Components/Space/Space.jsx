@@ -8,7 +8,7 @@ class Space extends Component {
     List: PropTypes.object.isRequired,
   };
   render() {
-    const {items} = this.props.List;
+    const {itemsSpace} = this.props.List;
     return (
       <main>
         <div className="container bread-wrapper">
@@ -51,7 +51,7 @@ class Space extends Component {
           <div className="container">
             <div className="row Content-new">
               {
-                items.map((value,key) => {
+                itemsSpace.map((value,key) => {
                   if(value.id === 8){
                     return (
                       <div className="col-md-6 i1" key={key}>
@@ -76,7 +76,7 @@ class Space extends Component {
               <div className="col-md-6 i2">
                 <div className="card-2">
                 {
-                  items.map((value,key) => {
+                  itemsSpace.map((value,key) => {
                     if(value.id >= 7){
                       return <SpaceListNewItem {...value} key={key}/>
                     }
@@ -95,7 +95,7 @@ class Space extends Component {
         <section className="xuhuong">
           <div className="container">
             {
-            items.map((value,key) => 
+            itemsSpace.map((value,key) => 
               <SpaceListItem {...value} key={key}/>
               )
             }
