@@ -4,4 +4,5 @@ export default {
   get_data_space: 'GET_DATA_SPACE',
   get_data_PengShui: 'GET_DATA_PENGSHUI',
   get_data_Tips: 'GET_DATA_TIPS',
+  get_data_home: 'GET_DATA_HOME',
 }
