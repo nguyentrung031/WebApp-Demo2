@@ -30,7 +30,7 @@ class Home extends Component {
                     return (
                       <div className="col-md-6 i1" key={key}>
                         <div className="img-1 i1">
-                          <a href={` `}>
+                          <a href={`/Detail/${value.id}`}>
                             <img src={value.img} alt="i1" />
                           </a>
                         </div> 

@@ -7,7 +7,8 @@ import Space from '../Components/Space/Space';
 import PengShui from '../Components/PengShui/PengShui';
 import Tips from '../Components/Tips/Tisp';
 import Detail from '../Components/Detail/Detail';
-
+import Supplies from '../Components/Supplies/Supplies';
+import StrangePoison from '../Components/StrangePoison/StrangePoison';
 class RouterURL extends Component {
   render() {
     return (
@@ -20,6 +21,8 @@ class RouterURL extends Component {
             <Route path="/Space/" component={Space}/>
             <Route path="/PengShui/" component={PengShui}/>
             <Route path="/Tips/" component={Tips}/>
+            <Route path="/Supplies/" component={Supplies}/>
+            <Route path="/StrangePoison/" component={StrangePoison}/>
             <Route path="/Detail/:id" component={Detail}/>
           </div>
         </Router>

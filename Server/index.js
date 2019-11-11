@@ -22,6 +22,12 @@ app.get('/api/PengShui', (req, res) => {
 app.get('/api/Tips', (req, res) => {
   res.json(Data);
 });
+app.get('/api/Supplies', (req, res) => {
+  res.json(Data);
+});
+app.get('/api/StrangePoison', (req, res) => {
+  res.json(Data);
+});
 app.get('/Detail/:id', (req, res) => {
   const data = Data.find((val)=>{
     return val.id == req.params.id;

@@ -42,7 +42,24 @@ export const getDataItem = () => dispatch=> {
         payloadTips: res.data
       })
     )
+  //api trang vật tư
+  axios.get('/api/Supplies')
+    .then(res =>
+      dispatch({
+        type: actionType.get_data_Supplies,
+        payloadSupplies: res.data
+      })
+    )
+  //api trang Độc lạ
+  axios.get('/api/StrangePoison')
+    .then(res =>
+      dispatch({
+        type: actionType.get_data_StrangePoison,
+        payloadSP: res.data
+      })
+    )
 };
+//api trang chi tiết tin tức
 export const getDetail = id => dispatch=> {
   axios.get(`/Detail/${id}`)
   .then(res =>
