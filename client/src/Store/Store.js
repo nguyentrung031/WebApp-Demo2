@@ -13,7 +13,7 @@ var store = createStore(
   composeEnhancers(applyMiddleware(...middleWare))
   );
 
-// store.subscribe(function(){
+//  store.subscribe(function(){
 //     console.log(JSON.stringify(store.getState()));
 // })
 export default store;

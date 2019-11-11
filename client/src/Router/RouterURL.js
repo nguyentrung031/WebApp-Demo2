@@ -6,6 +6,7 @@ import Style from '../Components/Style/Style';
 import Space from '../Components/Space/Space';
 import PengShui from '../Components/PengShui/PengShui';
 import Tips from '../Components/Tips/Tisp';
+import Detail from '../Components/Detail/Detail';
 
 class RouterURL extends Component {
   render() {
@@ -19,6 +20,7 @@ class RouterURL extends Component {
             <Route path="/Space/" component={Space}/>
             <Route path="/PengShui/" component={PengShui}/>
             <Route path="/Tips/" component={Tips}/>
+            <Route path="/Detail/:id" component={Detail}/>
           </div>
         </Router>
       </div>

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import actionType from '../consts/actionType';
 
-export const getDataItem = () => dispatch => {
-  // api trang Tendency
+export const getDataItem = () => dispatch=> {
+  // api trang Tendency,
   axios.get('/api/Tendency')
     .then(res =>
       dispatch({
@@ -43,4 +43,12 @@ export const getDataItem = () => dispatch => {
       })
     )
 };
-
+export const getDetail = id => dispatch=> {
+  axios.get(`/Detail/${id}`)
+  .then(res =>
+    dispatch({
+      type: actionType.get_data_detail,
+      payloadDetail: res.data
+    })
+  )
+}

@@ -6,6 +6,7 @@ var initialState = {
   itemsSpace: [],
   itemsPengShui: [],
   itemsTips: [],
+  itemsDetail: {}
 };
 var myReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -33,6 +34,11 @@ var myReducer = (state = initialState, action) => {
       return {
         ...state,
         itemsTips: action.payloadTips
+      };
+    case actionType.get_data_detail:
+      return {
+        ...state,
+        itemsDetail: action.payloadDetail
       };
     default:
       return state;
