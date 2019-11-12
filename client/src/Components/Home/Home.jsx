@@ -32,8 +32,11 @@ class Home extends Component {
       dots: true,
       infinite: true,
       speed: 500,
+      autoplay: true,
       slidesToShow: 5,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      arrows: true,
+      lazyLoad: true
     };
     const {itemsTendency,itemsStyle,itemsTips,itemsPengShui} = this.props.List;
     return (
@@ -182,19 +185,20 @@ class Home extends Component {
             <div className="Title">
               <small>ĐỘC LẠ</small>
             </div>
-            <div className="Card-body-01" >
-              <Slider {...settings}>
-              {
-                itemsTips.map((value,key) => {
-                  if(value.id <= 6){
-                    return (
-                      <HomeSlide {...value} key={key}/>
-                    )
-                  }
-                })
-              }
-              </Slider>
-            </div>
+            <Slider {...settings}>
+            {
+              itemsTips.map((value,key) => {
+                if(value.id <= 6){
+                  return (
+                    <HomeSlide {...value} key={key}/>
+                  )
+                }
+              })
+            }
+            </Slider>
+            {/* <div className="Card-body-01" {...settings} >
+              
+            </div> */}
           </div>
         </section>
         {/* end section 4 doc la */}
@@ -208,8 +212,8 @@ class Home extends Component {
                 </div>
                 <div className="form-group">
                   <label htmlFor="email"></label>
-                  <input onChange={this.onchange} type="text" className="form-control" name="email" id="email" placeholder="nhập Email"/>
-                  <button onClick={this.onSubmit} name="email" type="submit" className="btn btn-dark">send</button>
+                  <input onChange={this.onchange} type="text" className="form-control" name="email" placeholder="nhập Email"/>
+                  <button onClick={(e) =>this.onSubmit(e)} type="submit" className="btn btn-dark">send</button>
                 </div>
               </div>
               <div className="col-md-8 vattu-body">

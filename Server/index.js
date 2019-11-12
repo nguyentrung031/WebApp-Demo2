@@ -1,6 +1,7 @@
 const express = require('express')
 var bodyParser = require('body-parser');
 const app = express();
+const _ = require('lodash');
 const Data = require('./Data/Data')
 const DbEmail = require('./Data/DataEmail')
 app.use(bodyParser.json());
@@ -30,7 +31,7 @@ app.get('/api/StrangePoison', (req, res) => {
   res.json(Data);
 });
 app.get('/Detail/:id', (req, res) => {
-  const data = Data.find((val)=>{
+  const data = _.find(Data,(val)=>{
     return val.id == req.params.id;
   });
   res.json(data);
@@ -38,14 +39,25 @@ app.get('/Detail/:id', (req, res) => {
 app.get('/api/getEmail', (req, res) => {
   res.json(DbEmail);
 });
-app.post('/api/addEmail', (rep,res) => {
-  var param = rep.body;
-  var Email = param.email;
-  var resData = {
+app.post('/api/addEmail', (req,res) => {
+  param = req.body;
+  Email = param.email;
+  resData = {
       "email":Email
   }
-  DbEmail.push(resData)
-  res.status(200).send({ success:true,massage:'Thanh cong', DbEmail:resData});
+  DbEmail.Email = _.concat(DbEmail.Email, resData);
+  //kiểm tra trùng lặp
+  const set = new Set();
+  const newItems = DbEmail.Email.filter(e => {
+    if (set.has(e.email)) { 
+      return false;
+    } else {
+      set.add(e.email);
+      return true;
+    }
+  });
+  DbEmail.Email = newItems;
+  res.json(DbEmail);
 });
 app.listen(5000, () => {
   console.log('App listening on port 5000')
