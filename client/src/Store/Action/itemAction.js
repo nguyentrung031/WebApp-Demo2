@@ -69,3 +69,13 @@ export const getDetail = id => dispatch=> {
     })
   )
 }
+//api add email
+export const addEmail = item => dispatch=> {
+  axios.post('/api/addEmail', item)
+  .then(res =>
+    dispatch({
+      type: actionType.add_data_Email,
+      payloadEmail: res.data
+    })
+  )
+}

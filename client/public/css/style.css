@@ -30,6 +30,11 @@ img.mr-3.i1 {
 .vattu-item-tow img {
     width: 100px;
 }
+button.btn.btn-dark {
+    display: block !important;
+    width: 100%;
+    margin-top: 10px;
+}
 /* ---------------------- */
 /* --------HEADER-------- */
 

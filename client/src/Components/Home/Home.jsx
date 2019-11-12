@@ -2,7 +2,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Slider from "react-slick";
 import HomeSlide from './HomeSlide';
+import { addEmail } from '../../Store/Action/itemAction';
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email:''
+    }
+  }
+  componentDidMount(){
+    this.props.addEmail();
+  };
+  onchange = e =>{
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({
+        [name] : value
+    });
+  };
+  onSubmit = e => {
+    e.preventDefault();
+    const newItem = {
+      email: this.state.email
+    };
+    this.props.addEmail(newItem);
+  }
   render() {
     const settings = {
       dots: true,
@@ -182,6 +206,11 @@ class Home extends Component {
                 <div className="Title">
                   <small>KẾT NỐI VỚI CHÚNG TÔI</small>
                 </div>
+                <div className="form-group">
+                  <label htmlFor="email"></label>
+                  <input onChange={this.onchange} type="text" className="form-control" name="email" id="email" placeholder="nhập Email"/>
+                  <button onClick={this.onSubmit} name="email" type="submit" className="btn btn-dark">send</button>
+                </div>
               </div>
               <div className="col-md-8 vattu-body">
                 <div className="Title">
@@ -240,4 +269,5 @@ const mapStateToProps = (state, ownProps) => {
     List: state.List,
   }
 }
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = {addEmail};
+export default connect(mapStateToProps,mapDispatchToProps)(Home);

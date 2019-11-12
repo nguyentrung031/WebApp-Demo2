@@ -7,4 +7,5 @@ export default {
   get_data_Supplies: 'GET_DATA_SUPPLIES',
   get_data_StrangePoison: 'GET_DATA_STRANGEPOISON',
   get_data_detail: 'GET_DATA_DETAIL',
+  add_data_Email: 'ADD_DATA_EMAIL',
 }

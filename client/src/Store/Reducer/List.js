@@ -8,7 +8,8 @@ var initialState = {
   itemsTips: [],
   itemsSupplies: [],
   itemsSP: [],
-  itemsDetail: {}
+  itemsDetail: {},
+  itemsEmail: []
 };
 var myReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -59,6 +60,12 @@ var myReducer = (state = initialState, action) => {
       return {
         ...state,
         itemsDetail: action.payloadDetail
+      };
+    // add Email
+    case actionType.add_data_Email:
+      return {
+        ...state,
+        itemsEmail: [action.payloadEmail, ...state.itemsEmail]
       };
     default:
       return state;
