@@ -1,5 +1,5 @@
 module.exports =[
-	{
-		"email": "trung9977@gmail.com"
-	}
+{
+  "email": "trung9977@gmail.com"
+}
 ]
