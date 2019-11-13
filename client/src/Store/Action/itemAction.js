@@ -3,7 +3,7 @@ import actionType from '../consts/actionType';
 
 export const getDataItem = () => dispatch=> {
   // api trang Tendency,
-  axios.get('/api/Tendency')
+  axios.get('/api/tendency')
     .then(res =>
       dispatch({
         type: actionType.get_data_tendency,
@@ -11,7 +11,7 @@ export const getDataItem = () => dispatch=> {
       })
     )
   //api trang Style 
-  axios.get('/api/Style')
+  axios.get('/api/style')
     .then(res =>
       dispatch({
         type: actionType.get_data_style,
@@ -19,7 +19,7 @@ export const getDataItem = () => dispatch=> {
       })
     )
   //api trang Space 
-  axios.get('/api/Space')
+  axios.get('/api/space')
     .then(res =>
       dispatch({
         type: actionType.get_data_space,
@@ -27,7 +27,7 @@ export const getDataItem = () => dispatch=> {
       })
     )
   //api trang PengShui
-  axios.get('/api/PengShui')
+  axios.get('/api/peng_shui')
     .then(res =>
       dispatch({
         type: actionType.get_data_PengShui,
@@ -35,7 +35,7 @@ export const getDataItem = () => dispatch=> {
       })
     )
   //api trang Tips
-  axios.get('/api/Tips')
+  axios.get('/api/tips')
     .then(res =>
       dispatch({
         type: actionType.get_data_Tips,
@@ -43,7 +43,7 @@ export const getDataItem = () => dispatch=> {
       })
     )
   //api trang vật tư
-  axios.get('/api/Supplies')
+  axios.get('/api/supplies')
     .then(res =>
       dispatch({
         type: actionType.get_data_Supplies,
@@ -51,7 +51,7 @@ export const getDataItem = () => dispatch=> {
       })
     )
   //api trang Độc lạ
-  axios.get('/api/StrangePoison')
+  axios.get('/api/strange_poison')
     .then(res =>
       dispatch({
         type: actionType.get_data_StrangePoison,
@@ -61,7 +61,7 @@ export const getDataItem = () => dispatch=> {
 };
 //api trang chi tiết tin tức
 export const getDetail = id => dispatch=> {
-  axios.get(`/Detail/${id}`)
+  axios.get(`/api/get_detail/${id}`)
   .then(res =>
     dispatch({
       type: actionType.get_data_detail,
@@ -71,7 +71,7 @@ export const getDetail = id => dispatch=> {
 }
 //api add email
 export const addEmail = item => dispatch=> {
-  axios.post('/api/addEmail', item)
+  axios.post('/api/add_email', item)
   .then(res =>
     dispatch({
       type: actionType.add_data_Email,
