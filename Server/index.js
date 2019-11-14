@@ -39,19 +39,16 @@ app.get('/api/get_email', (req, res) => {
 });
 app.post('/api/add_email', (req,res) => {
   const param = req.body;
-  const email = param.email;
-  resData = {
-    "email": email
-  }
-  DbEmail = _.concat(DbEmail, resData);
+  const Email = param.email;
+  DbEmail = _.concat(DbEmail, Email);
   //kiểm tra trùng lặp
   const set = new Set();
   const newItems = _.filter(DbEmail, e => {
-    if (set.has(e.email)) { 
+    if (set.has(e)) { 
       return false;
     } 
     else {
-      set.add(e.email);
+      set.add(e);
       return true;
     }
   });
