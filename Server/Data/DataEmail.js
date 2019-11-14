@@ -1,8 +1,6 @@
-module.exports ={
-  Email:[
-    {
-      "email": "1233"
-    }
-  ]
-}
+module.exports =[
+  {
+    "email": "test"
+  }
+]
 

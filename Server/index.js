@@ -5,7 +5,7 @@ const _ = require('lodash');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 const Data = require('./Data/Data')
-const DbEmail = require('./Data/DataEmail')
+let DbEmail = require('./Data/DataEmail');
 app.get('/', (req, res) => {
   res.send('hello from server!')
 })
@@ -31,7 +31,7 @@ app.get('/api/strange_poison', (req, res) => {
   res.json(Data);
 });
 app.get('/api/get_detail/:id', (req, res) => {
-  const data = _.find(Data,(val) => val.id == req.params.id);
+  const data = _.find(Data, (val) => val.id == req.params.id);
   res.json(data);
 }) 
 app.get('/api/get_email', (req, res) => {
@@ -43,10 +43,10 @@ app.post('/api/add_email', (req,res) => {
   resData = {
     "email": email
   }
-  DbEmail.Email = _.concat(DbEmail.Email, resData);
+  DbEmail = _.concat(DbEmail, resData);
   //kiểm tra trùng lặp
   const set = new Set();
-  const newItems = _.filter(DbEmail.Email,e => {
+  const newItems = _.filter(DbEmail, e => {
     if (set.has(e.email)) { 
       return false;
     } 
@@ -55,7 +55,7 @@ app.post('/api/add_email', (req,res) => {
       return true;
     }
   });
-  DbEmail.Email = newItems;
+  DbEmail = newItems;
   res.json(DbEmail);
 });
 app.listen(5000, () => {

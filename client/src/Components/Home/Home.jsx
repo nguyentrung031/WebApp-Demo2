@@ -273,5 +273,7 @@ const mapStateToProps = (state, ownProps) => {
     List: state.List,
   }
 }
-const mapDispatchToProps = {addEmail};
+const mapDispatchToProps = {
+  addEmail
+};
 export default connect(mapStateToProps,mapDispatchToProps)(Home);

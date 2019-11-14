@@ -178,5 +178,7 @@ const mapStateToProps = (state, ownProps) => {
     List: state.List
   }
 }
-const mapDispatchToProps = {getDetail};
+const mapDispatchToProps = {
+  getDetail
+};
 export default connect(mapStateToProps,mapDispatchToProps)(Detail);
