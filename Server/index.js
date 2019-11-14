@@ -31,9 +31,9 @@ app.get('/api/strange_poison', (req, res) => {
   res.json(Data);
 });
 app.get('/api/get_detail/:id', (req, res) => {
-  const data = _.find(Data,(val)=> val.id == req.params.id);
+  const data = _.find(Data,(val) => val.id == req.params.id);
   res.json(data);
-})
+}) 
 app.get('/api/get_email', (req, res) => {
   res.json(DbEmail);
 });
@@ -41,7 +41,7 @@ app.post('/api/add_email', (req,res) => {
   const param = req.body;
   const email = param.email;
   resData = {
-      "email":email
+    "email": email
   }
   DbEmail.Email = _.concat(DbEmail.Email, resData);
   //kiểm tra trùng lặp
