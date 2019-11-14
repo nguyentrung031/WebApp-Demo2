@@ -51,7 +51,7 @@ class StrangePoison extends Component {
           <div className="container">
             <div className="row Content-new">
               {
-                itemsSP.map((value,key) => {
+                itemsSP.map((value, key) => {
                   if(value.id === 8){
                     return (
                       <div className="col-md-6 i1" key={key}>
@@ -76,7 +76,7 @@ class StrangePoison extends Component {
               <div className="col-md-6 i2">
                 <div className="card-2">
                  {
-                   itemsSP.map((value,key) => {
+                   itemsSP.map((value, key) => {
                      if(value.id >= 7){
                        return <SPListNewItem {...value} key={key}/>
                      }
@@ -95,7 +95,7 @@ class StrangePoison extends Component {
         <section className="xuhuong">
           <div className="container">
             {
-             itemsSP.map((value,key) => 
+             itemsSP.map((value, key) => 
               <SPListItem {...value} key={key}/>
               )
             }

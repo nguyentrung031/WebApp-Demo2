@@ -51,7 +51,7 @@ class Tendency extends Component {
           <div className="container">
             <div className="row Content-new">
               {
-                itemsTendency.map((value,key) => {
+                itemsTendency.map((value, key) => {
                   if(value.id === 8){
                     return (
                       <div className="col-md-6 i1" key={key}>
@@ -76,7 +76,7 @@ class Tendency extends Component {
               <div className="col-md-6 i2">
                 <div className="card-2">
                  {
-                   itemsTendency.map((value,key) => {
+                   itemsTendency.map((value, key) => {
                      if(value.id >= 7){
                        return <TendencyListNewItem {...value} key={key}/>
                      }
@@ -95,7 +95,7 @@ class Tendency extends Component {
         <section className="xuhuong">
           <div className="container">
             {
-             itemsTendency.map((value,key) => 
+             itemsTendency.map((value, key) => 
               <TendencyListItem {...value} key={key}/>
               )
             }

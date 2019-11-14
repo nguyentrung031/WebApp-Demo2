@@ -38,7 +38,7 @@ class Home extends Component {
       arrows: true,
       lazyLoad: true
     };
-    const {itemsTendency,itemsStyle,itemsTips,itemsPengShui} = this.props.List;
+    const {itemsTendency, itemsStyle, itemsTips, itemsPengShui} = this.props.List;
     return (
       <main>
         {/* section1 mới */}
@@ -276,4 +276,4 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = {
   addEmail
 };
-export default connect(mapStateToProps,mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

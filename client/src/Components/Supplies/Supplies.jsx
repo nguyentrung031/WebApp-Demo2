@@ -51,7 +51,7 @@ class Supplies extends Component {
           <div className="container">
             <div className="row Content-new">
               {
-                itemsSupplies.map((value,key) => {
+                itemsSupplies.map((value, key) => {
                   if(value.id === 8){
                     return (
                       <div className="col-md-6 i1" key={key}>
@@ -76,7 +76,7 @@ class Supplies extends Component {
               <div className="col-md-6 i2">
                 <div className="card-2">
                  {
-                   itemsSupplies.map((value,key) => {
+                   itemsSupplies.map((value, key) => {
                      if(value.id >= 7){
                        return <SuppliesListNewItem {...value} key={key}/>
                      }
@@ -95,7 +95,7 @@ class Supplies extends Component {
         <section className="xuhuong">
           <div className="container">
             {
-             itemsSupplies.map((value,key) => 
+             itemsSupplies.map((value, key) => 
               <SuppliesLisItem {...value} key={key}/>
               )
             }

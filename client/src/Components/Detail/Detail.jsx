@@ -181,4 +181,4 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = {
   getDetail
 };
-export default connect(mapStateToProps,mapDispatchToProps)(Detail);
+export default connect(mapStateToProps, mapDispatchToProps)(Detail);

@@ -51,7 +51,7 @@ class PengShui extends Component {
           <div className="container">
             <div className="row Content-new">
               {
-                itemsPengShui.map((value,key) => {
+                itemsPengShui.map((value, key) => {
                   if(value.id === 8){
                     return (
                       <div className="col-md-6 i1" key={key}>
@@ -76,7 +76,7 @@ class PengShui extends Component {
               <div className="col-md-6 i2">
                 <div className="card-2">
                 {
-                  itemsPengShui.map((value,key) => {
+                  itemsPengShui.map((value, key) => {
                     if(value.id >= 7){
                       return <PengShuiListNewItem {...value} key={key}/>
                     }
@@ -95,7 +95,7 @@ class PengShui extends Component {
         <section className="xuhuong">
           <div className="container">
             {
-            itemsPengShui.map((value,key) => 
+            itemsPengShui.map((value, key) => 
               <PengShuiListItem {...value} key={key}/>
               )
             }

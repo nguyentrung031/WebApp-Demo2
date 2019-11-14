@@ -52,7 +52,7 @@ class Tips extends Component {
           <div className="container">
             <div className="row Content-new">
               {
-                itemsTips.map((value,key) => {
+                itemsTips.map((value, key) => {
                   if(value.id === 8){
                     return (
                       <div className="col-md-6 i1" key={key}>
@@ -77,7 +77,7 @@ class Tips extends Component {
               <div className="col-md-6 i2">
                 <div className="card-2">
                 {
-                  itemsTips.map((value,key) => {
+                  itemsTips.map((value, key) => {
                     if(value.id >= 7){
                       return <TipsListNewItem {...value} key={key}/>
                     }
@@ -96,7 +96,7 @@ class Tips extends Component {
         <section className="xuhuong">
           <div className="container">
             {
-            itemsTips.map((value,key) => 
+            itemsTips.map((value, key) => 
               <TipsListItem {...value} key={key}/>
               )
             }
