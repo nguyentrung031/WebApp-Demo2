@@ -1,4 +1,2 @@
-module.exports =[
-  email = "sdsd",
-]
+module.exports =["trung"]
 

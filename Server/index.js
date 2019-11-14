@@ -5,7 +5,7 @@ const _ = require('lodash');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 const Data = require('./Data/Data')
-let DbEmail = require('./Data/DataEmail');
+var DbEmail = require('./Data/DataEmail.js');
 app.get('/', (req, res) => {
   res.send('hello from server!')
 })
@@ -41,7 +41,6 @@ app.post('/api/add_email', (req,res) => {
   const param = req.body;
   const Email = param.email;
   DbEmail = _.concat(DbEmail, Email);
-  //kiểm tra trùng lặp
   const set = new Set();
   const newItems = _.filter(DbEmail, e => {
     if (set.has(e)) { 
