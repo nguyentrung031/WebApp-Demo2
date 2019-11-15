@@ -38,9 +38,7 @@ app.get('/api/get_email', (req, res) => {
   res.json(DbEmail);
 });
 app.post('/api/add_email', (req,res) => {
-  const param = req.body;
-  const Email = param.email;
-  DbEmail = _.concat(DbEmail, Email);
+  DbEmail = _.concat(DbEmail, req.body.email);
   const set = new Set();
   const newItems = _.filter(DbEmail, e => {
     if (set.has(e)) { 
