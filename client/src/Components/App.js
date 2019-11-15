@@ -27,5 +27,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
   }
 }
-const mapDispatchToProps = {getDataItem}
+const mapDispatchToProps = {
+  getDataItem
+};
 export default connect(mapStateToProps,mapDispatchToProps)(App);

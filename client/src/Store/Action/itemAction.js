@@ -1,9 +1,9 @@
 import axios from 'axios';
 import actionType from '../consts/actionType';
 
-export const getDataItem = () => dispatch => {
-  // api trang Tendency
-  axios.get('/api/Tendency')
+export const getDataItem = () => dispatch=> {
+  // api trang Tendency,
+  axios.get('/api/tendency')
     .then(res =>
       dispatch({
         type: actionType.get_data_tendency,
@@ -11,7 +11,7 @@ export const getDataItem = () => dispatch => {
       })
     )
   //api trang Style 
-  axios.get('/api/Style')
+  axios.get('/api/style')
     .then(res =>
       dispatch({
         type: actionType.get_data_style,
@@ -19,7 +19,7 @@ export const getDataItem = () => dispatch => {
       })
     )
   //api trang Space 
-  axios.get('/api/Space')
+  axios.get('/api/space')
     .then(res =>
       dispatch({
         type: actionType.get_data_space,
@@ -27,7 +27,7 @@ export const getDataItem = () => dispatch => {
       })
     )
   //api trang PengShui
-  axios.get('/api/PengShui')
+  axios.get('/api/peng_shui')
     .then(res =>
       dispatch({
         type: actionType.get_data_PengShui,
@@ -35,12 +35,47 @@ export const getDataItem = () => dispatch => {
       })
     )
   //api trang Tips
-  axios.get('/api/Tips')
+  axios.get('/api/tips')
     .then(res =>
       dispatch({
         type: actionType.get_data_Tips,
         payloadTips: res.data
       })
     )
+  //api trang vật tư
+  axios.get('/api/supplies')
+    .then(res =>
+      dispatch({
+        type: actionType.get_data_Supplies,
+        payloadSupplies: res.data
+      })
+    )
+  //api trang Độc lạ
+  axios.get('/api/strange_poison')
+    .then(res =>
+      dispatch({
+        type: actionType.get_data_StrangePoison,
+        payloadSP: res.data
+      })
+    )
 };
-
+//api trang chi tiết tin tức
+export const getDetail = id => dispatch=> {
+  axios.get(`/api/get_detail/${id}`)
+  .then(res =>
+    dispatch({
+      type: actionType.get_data_detail,
+      payloadDetail: res.data
+    })
+  )
+}
+//api add email
+export const addEmail = item => dispatch=> {
+  axios.post('/api/add_email', item)
+  .then(res =>
+    dispatch({
+      type: actionType.add_data_Email,
+      payloadEmail: res.data
+    })
+  )
+}

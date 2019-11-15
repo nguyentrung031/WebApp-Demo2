@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import StyleLisItem from './StyleLisItem';
-import StyleListNewItem from './StyleListNewItem';
-class Style extends Component {
+import SuppliesLisItem from './SuppliesLisItem';
+import SuppliesListNewItem from './SuppliesListNewItem';
+class Supplies extends Component {
   static propTypes = {
     List: PropTypes.object.isRequired,
   };
   render() {
-    const {itemsStyle} = this.props.List;
+    const {itemsSupplies} = this.props.List;
     return (
       <main>
         <div className="container bread-wrapper">
           <nav className="bread" aria-label="breadcrumb">
             <ol className="breadcrumb">
               <li className="breadcrumb-item"><a href="/">Home</a></li>
-              <li className="breadcrumb-item active" aria-current="page">Phong cách</li>
+              <li className="breadcrumb-item active" aria-current="page">Vật tư</li>
             </ol>
           </nav>
           <div className="title-wrap">
             <div className="title-wrap-content">
-              <h2>Phong cách</h2>
+              <h2>Vật tư</h2>
             </div>
             <div className="title-wrap-item">
               <div className="wrap-item" id="dropdownMenuButton" data-toggle="dropdown">
@@ -51,7 +51,7 @@ class Style extends Component {
           <div className="container">
             <div className="row Content-new">
               {
-                itemsStyle.map((value, key) => {
+                itemsSupplies.map((value, key) => {
                   if(value.id === 8){
                     return (
                       <div className="col-md-6 i1" key={key}>
@@ -61,7 +61,7 @@ class Style extends Component {
                           </a>
                         </div> 
                         <div className="Title-1">
-                          <small>Phong cách</small>
+                          <small>Vật tư</small>
                           <h3>{value.name} </h3>
                           <span>{value.date}</span>
                         </div>
@@ -75,16 +75,16 @@ class Style extends Component {
               }
               <div className="col-md-6 i2">
                 <div className="card-2">
-                {
-                  itemsStyle.map((value, key) => {
-                    if(value.id >= 7){
-                      return <StyleListNewItem {...value} key={key}/>
-                    }
-                    else{
+                 {
+                   itemsSupplies.map((value, key) => {
+                     if(value.id >= 7){
+                       return <SuppliesListNewItem {...value} key={key}/>
+                     }
+                     else{
                       return null;
-                    }
-                  })
-                }                    
+                     }
+                   })
+                 }                    
                 </div>
               </div>
             </div>
@@ -95,8 +95,8 @@ class Style extends Component {
         <section className="xuhuong">
           <div className="container">
             {
-            itemsStyle.map((value, key) => 
-              <StyleLisItem {...value} key={key}/>
+             itemsSupplies.map((value, key) => 
+              <SuppliesLisItem {...value} key={key}/>
               )
             }
             <nav aria-label="Page navigation example">
@@ -127,4 +127,4 @@ const mapStateToProps = (state, ownProps) => {
     List: state.List
   }
 }
-export default connect(mapStateToProps)(Style);
+export default connect(mapStateToProps)(Supplies);

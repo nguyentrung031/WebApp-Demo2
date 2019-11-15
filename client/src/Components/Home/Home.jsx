@@ -2,16 +2,43 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Slider from "react-slick";
 import HomeSlide from './HomeSlide';
+import { addEmail } from '../../Store/Action/itemAction';
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email:''
+    }
+  }
+  componentDidMount(){
+    this.props.addEmail();
+  };
+  onchange = e =>{
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({
+        [name] : value
+    });
+  };
+  onSubmit = e => {
+    e.preventDefault();
+    const newItem = {
+      email: this.state.email
+    };
+    this.props.addEmail(newItem);
+  }
   render() {
     const settings = {
       dots: true,
       infinite: true,
       speed: 500,
+      autoplay: true,
       slidesToShow: 5,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      arrows: true,
+      lazyLoad: true
     };
-    const {itemsTendency,itemsStyle,itemsTips,itemsPengShui} = this.props.List;
+    const {itemsTendency, itemsStyle, itemsTips, itemsPengShui} = this.props.List;
     return (
       <main>
         {/* section1 mới */}
@@ -158,19 +185,20 @@ class Home extends Component {
             <div className="Title">
               <small>ĐỘC LẠ</small>
             </div>
-            <div className="Card-body-01" >
-              <Slider {...settings}>
-              {
-                itemsTips.map((value,key) => {
-                  if(value.id <= 6){
-                    return (
-                      <HomeSlide {...value} key={key}/>
-                    )
-                  }
-                })
-              }
-              </Slider>
-            </div>
+            <Slider {...settings}>
+            {
+              itemsTips.map((value,key) => {
+                if(value.id <= 6){
+                  return (
+                    <HomeSlide {...value} key={key}/>
+                  )
+                }
+              })
+            }
+            </Slider>
+            {/* <div className="Card-body-01" {...settings} >
+              
+            </div> */}
           </div>
         </section>
         {/* end section 4 doc la */}
@@ -181,6 +209,11 @@ class Home extends Component {
               <div className="col-md-4 connect-face">
                 <div className="Title">
                   <small>KẾT NỐI VỚI CHÚNG TÔI</small>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email"></label>
+                  <input onChange={this.onchange} type="text" className="form-control" name="email" placeholder="nhập Email"/>
+                  <button onClick={(e) =>this.onSubmit(e)} type="submit" className="btn btn-dark">send</button>
                 </div>
               </div>
               <div className="col-md-8 vattu-body">
@@ -240,4 +273,7 @@ const mapStateToProps = (state, ownProps) => {
     List: state.List,
   }
 }
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = {
+  addEmail
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
