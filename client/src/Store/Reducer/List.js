@@ -9,7 +9,8 @@ var initialState = {
   itemsSupplies: [],
   itemsSP: [],
   itemsDetail: {},
-  itemsEmail: []
+  itemsEmail: [],
+  itemsSearch: []
 };
 var myReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -66,6 +67,12 @@ var myReducer = (state = initialState, action) => {
       return {
         ...state,
         itemsEmail: [action.payloadEmail, ...state.itemsEmail]
+      };
+    // search data
+    case actionType.search_data:
+      return {
+        ...state,
+        itemsSearch: action.payloadSearch
       };
     default:
       return state;

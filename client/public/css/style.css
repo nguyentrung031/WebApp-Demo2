@@ -48,6 +48,10 @@ button.slick-arrow.slick-next {
   margin-top: 20px;
   margin-bottom: 55px;
 }
+.container.search-wrap {
+  margin-top: 50px;
+}
+
 /* ---------------------- */
 /* --------HEADER-------- */
 .logo {
@@ -157,6 +161,7 @@ a.nav-link {
 a.nav-link {
   position: relative;
 }
+a.nav-link.active,
 a.nav-link:before {
   content: "";
   position: absolute;
@@ -170,6 +175,7 @@ a.nav-link:before {
   visibility: hidden;
   opacity: 0;
 }
+a.nav-link.active,
 a.nav-link:hover {
   visibility: visible;
   opacity: 1;
@@ -186,6 +192,35 @@ li.nav-item:hover a.nav-link:before {
 .ds-01{
   display: block;
   transition: 0.4s;
+}
+.dropdow-search.dropdown-menu.show {
+  top: 0 !important;
+}
+.nav-body.up {
+  display: inline-block;
+  position: fixed;
+  z-index: 1000;
+  background-color: #000000bf;
+  width: 100%;
+  left: 0;
+  margin: 0 auto;
+}
+.nav-body.up .fas.fa-search{
+  color: white !important;
+}
+.nav-body.up .nav-link {
+  color: #f8f9fa !important;
+  font-family: sans-serif;
+}
+
+.nav-body.up {
+  background-color: #000000bf;
+}
+.nav-body.up .navbar-nav {
+  margin-left: 7rem;
+}
+.nav-body.up .search-item {
+  right: 7rem;
 }
 /* ---------------------MAIN-------------- */
 /* ---------Section1 new-------- */
