@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import StyleLisItem from './StyleLisItem';
 import StyleListNewItem from './StyleListNewItem';
@@ -14,7 +15,7 @@ class Style extends Component {
         <div className="container bread-wrapper">
           <nav className="bread" aria-label="breadcrumb">
             <ol className="breadcrumb">
-              <li className="breadcrumb-item"><a href="/">Home</a></li>
+              <li className="breadcrumb-item"><Link to="/">Home</Link></li>
               <li className="breadcrumb-item active" aria-current="page">Phong cách</li>
             </ol>
           </nav>
@@ -28,19 +29,19 @@ class Style extends Component {
               </div>
               <ul className="wrap-drop dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li className="wrap-drop-item">
-                  <a href="/">Mới nhất</a>
+                  <Link to="/">Mới nhất</Link>
                 </li>
                 <li className="wrap-drop-item">
-                  <a href="/">Tin tiêu biểu</a>
+                  <Link to="/">Tin tiêu biểu</Link>
                 </li>
                 <li className="wrap-drop-item">
-                  <a href="/">Phổ biến nhất</a>
+                  <Link to="/">Phổ biến nhất</Link>
                 </li>
                 <li className="wrap-drop-item">
-                  <a href="/">Xem nhiều theo tuần</a>
+                  <Link to="/">Xem nhiều theo tuần</Link>
                 </li>
                 <li className="wrap-drop-item">
-                  <a href="/">Ngẫu nhiên</a>
+                  <Link to="/">Ngẫu nhiên</Link>
                 </li>
               </ul>
             </div>
@@ -56,9 +57,9 @@ class Style extends Component {
                     return (
                       <div className="col-md-6 i1" key={key}>
                         <div className="img-1">
-                          <a href={`/Detail/${value.id}`}>
+                          <Link to={`/Detail/${value.id}`}>
                             <img src={value.img} alt={value.name} />
-                          </a>
+                          </Link>
                         </div> 
                         <div className="Title-1">
                           <small>Phong cách</small>
@@ -102,17 +103,17 @@ class Style extends Component {
             <nav aria-label="Page navigation example">
               <ul className="pagination" id="navi-01">
                 <li className="page-item next">
-                  <a className="page-link" href="/" aria-label="Previous">
+                  <Link className="page-link" to="/" aria-label="Previous">
                     <span aria-hidden="true">«</span>
-                  </a>
+                  </Link>
                 </li>
-                <li className="page-item page-01 naviactive"><a className="page-link" href="/">1</a></li>
-                <li className="page-item page-01"><a className="page-link" href="/">2</a></li>
-                <li className="page-item page-01"><a className="page-link" href="/">3</a></li>
+                <li className="page-item page-01 naviactive"><Link className="page-link" to="/">1</Link></li>
+                <li className="page-item page-01"><Link className="page-link" to="/">2</Link></li>
+                <li className="page-item page-01"><Link className="page-link" to="/">3</Link></li>
                 <li className="page-item">
-                  <a className="page-link next" href="/" aria-label="Next">
+                  <Link className="page-link next" to="/" aria-label="Next">
                     <span aria-hidden="true">»</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>

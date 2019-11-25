@@ -6,6 +6,8 @@ import RouterURL from '../Router/RouterURL';
 import {getDataItem} from '../Store/Action/itemAction';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Router} from "react-router-dom";
+
 class App extends Component {
   static propTypes = {
     getDataItem: PropTypes.func.isRequired,
@@ -16,9 +18,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header/>
-        <RouterURL/>
-        <Footer/>
+        <Router>
+          <Header/>
+          <RouterURL/>
+          <Footer/>
+        </Router>
       </div>
     );
   }

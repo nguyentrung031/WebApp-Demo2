@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Slider from "react-slick";
+import {Link} from "react-router-dom";
 import HomeSlide from './HomeSlide';
-import { addEmail } from '../../Store/Action/itemAction';
+import { addEmail } from '../../Store/Action/itemAction'
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -47,7 +49,7 @@ class Home extends Component {
             <div className="Title-new">
               <h6>new</h6>
               <div className="Title-slide">
-                <a href="detail.html"><p>Tốp 5 thiết kế nội thất đẹp nhất!</p></a>
+                <Link to="detail.html"><p>Tốp 5 thiết kế nội thất đẹp nhất!</p></Link>
               </div>
             </div>
             <div className="row Content-new">
@@ -57,13 +59,13 @@ class Home extends Component {
                     return (
                       <div className="col-md-6 i1" key={key}>
                         <div className="img-1 i1">
-                          <a href={`/Detail/${value.id}`}>
+                          <Link to={`/Detail/${value.id}`}>
                             <img src={value.img} alt="i1" />
-                          </a>
+                          </Link>
                         </div> 
                         <div className="Title-1">
                           <small>Độc lạ</small>
-                          <a href={`/Detail/${value.id}`}><h3>{value.name}</h3></a>
+                          <Link to={`/Detail/${value.id}`}><h3>{value.name}</h3></Link>
                           <span>{value.date}</span>
                         </div>
                       </div>
@@ -75,9 +77,9 @@ class Home extends Component {
               <div className="col-md-6 i2">
                 <div className="card-1">
                   <div className="img-2">
-                    <a href="/">
+                    <Link to='/'>
                       <img src="./img/i2.jpg" alt="i1" />
-                    </a>
+                    </Link>
                   </div> 
                   <div className="Title-2">
                     <small>Độc lạ</small>
@@ -91,9 +93,9 @@ class Home extends Component {
                         return (
                           <div className="card-item" key={key}>
                             <div className="img-3">
-                              <a href={`/Detail/${value.id}`}>
+                              <Link to={`/Detail/${value.id}`}>
                                 <img src={value.img} alt={value.name} />
-                              </a>
+                              </Link>
                             </div> 
                             <div className="Title-3">
                               <small>Độc lạ</small>
@@ -118,19 +120,19 @@ class Home extends Component {
               <nav>
                 <ul>
                   <li className="T-item">
-                    <a href="/">Xem thêm</a>
+                    <Link to="/">Xem thêm</Link>
                   </li>
                   <li className="T-item">
-                    <a href="/">Độc lạ</a>
+                    <Link to="/">Độc lạ</Link>
                   </li>
                   <li className="T-item">
-                    <a href="/">Không gian</a>
+                    <Link to="/">Không gian</Link>
                   </li>
                   <li className="T-item">
-                    <a href="/">Mẹo vặt</a>
+                    <Link to="/">Mẹo vặt</Link>
                   </li>
                   <li className="T-item">
-                    <a href="/">Nhiều hơn <i className="fas fa-angle-down pr-2x" /></a>
+                    <Link to="/">Nhiều hơn <i className="fas fa-angle-down pr-2x" /></Link>
                   </li>
                 </ul>
               </nav>
@@ -142,14 +144,14 @@ class Home extends Component {
                     return (
                       <div className="col-md-4" key={key}>
                         <div className="img">
-                          <a href={`/Detail/${value.id}`}>
+                          <Link to={`/Detail/${value.id}`}>
                             <img src={value.img} alt={value.name} />
-                          </a>
+                          </Link>
                         </div>
                         <div className="content-item">
-                          <a href={`/Detail/${value.id}`}>
+                          <Link to={`/Detail/${value.id}`}>
                             <h5>{value.name}</h5>
-                          </a>
+                          </Link>
                           <span>{value.date}</span>
                           <p>{value.content}</p>
                         </div>
@@ -164,9 +166,9 @@ class Home extends Component {
                     if(value.id <= 4){
                       return (
                         <div className="media" key={key}>
-                          <a href={`/Detail/${value.id}`}><img src={value.img} className="mr-3" alt={value.name} /></a>
+                          <Link to={`/Detail/${value.id}`}><img src={value.img} className="mr-3" alt={value.name} /></Link>
                           <div className="media-body">
-                            <a href={`/Detail/${value.id}`}><h5 className="mt-0">{value.name}</h5></a>
+                            <Link to={`/Detail/${value.id}`}><h5 className="mt-0">{value.name}</h5></Link>
                             <span>{value.date}</span>
                           </div>
                         </div>
@@ -227,9 +229,9 @@ class Home extends Component {
                         return (
                           <div className="vattu-item-one" key={key}>
                             <div className="img">
-                              <a href={`/Detail/${value.id}`}>
+                              <Link to={`/Detail/${value.id}`}>
                                 <img src={value.img} alt={value.img} />
-                              </a>
+                              </Link>
                             </div>
                             <div className="content-item">
                               <h5>{value.name}</h5>
@@ -247,9 +249,13 @@ class Home extends Component {
                         if(value.id <= 4){
                           return (
                             <div className="media" key={key}>
-                              <img src={value.img} className="mr-3" alt={value.name} />
+                              <Link to={`/Detail/${value.id}`}>
+                                <img src={value.img} className="mr-3" alt={value.name} />
+                              </Link>
                               <div className="media-body">
-                                <h5 className="mt-0">{value.name}</h5>
+                                <Link to={`/Detail/${value.id}`}>
+                                  <h5 className="mt-0">{value.name}</h5>
+                                </Link>
                                 <span>{value.date}</span>
                               </div>
                             </div>

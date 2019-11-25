@@ -30,10 +30,17 @@ app.get('/api/supplies', (req, res) => {
 app.get('/api/strange_poison', (req, res) => {
   res.json(Data);
 });
+app.get('/api/get_search', (req, res) => {
+  var q = req.query.q
+  var result = _.filter(Data, (val) => 
+    val.name.toLowerCase().indexOf(q.toLowerCase()) !== -1
+  );
+  res.json(result);
+});
 app.get('/api/get_detail/:id', (req, res) => {
   const data = _.find(Data, (val) => val.id == req.params.id);
   res.json(data);
-}) 
+});
 app.get('/api/get_email', (req, res) => {
   res.json(DbEmail);
 });
@@ -43,4 +50,9 @@ app.post('/api/add_email', (req,res) => {
 });
 app.listen(5000, () => {
   console.log('App listening on port 5000')
+  // app._router.stack.forEach(r => {
+  //   if (r.route && r.route.path) {
+  //     console.log(r.route.path);
+  //   }
+  // });
 })

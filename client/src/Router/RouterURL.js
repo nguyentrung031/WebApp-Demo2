@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router,Switch, Route } from "react-router-dom";
 import Home from '../Components/Home/Home';
 import Tendency from '../Components/Tendency/Tendency';
 import Style from '../Components/Style/Style';
@@ -9,25 +9,25 @@ import Tips from '../Components/Tips/Tisp';
 import Detail from '../Components/Detail/Detail';
 import Supplies from '../Components/Supplies/Supplies';
 import StrangePoison from '../Components/StrangePoison/StrangePoison';
+import NewSearch from '../Components/Header/NewSearch';
+
 class RouterURL extends Component {
   render() {
     return (
-      <div>
-        <Router>
-          <div>
-            <Route path="/" exact component={Home} />
-            <Route path="/Tendency/" component={Tendency}/>
-            <Route path="/Style/" component={Style}/>
-            <Route path="/Space/" component={Space}/>
-            <Route path="/PengShui/" component={PengShui}/>
-            <Route path="/Tips/" component={Tips}/>
-            <Route path="/Supplies/" component={Supplies}/>
-            <Route path="/StrangePoison/" component={StrangePoison}/>
-            <Route path="/Detail/:id" component={Detail}/>
-          </div>
-        </Router>
-      </div>
+      <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/Tendency/" component={Tendency}/>
+          <Route path="/Style/" component={Style}/>
+          <Route path="/Space/" component={Space}/>
+          <Route path="/PengShui/" component={PengShui}/>
+          <Route path="/Tips/" component={Tips}/>
+          <Route path="/Supplies/" component={Supplies}/>
+          <Route path="/StrangePoison/" component={StrangePoison}/>
+          <Route path="/Detail/:id" component={Detail}/>
+          <Route path="/Search" component={NewSearch}/>
+      </Switch>
     );
   }
 }
+
 export default RouterURL;

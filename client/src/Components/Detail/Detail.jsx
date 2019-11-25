@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Link} from "react-router-dom";
 import { getDetail } from '../../Store/Action/itemAction';
 class Detail extends Component {
   componentDidMount(){
@@ -12,8 +13,8 @@ class Detail extends Component {
         <div className="container bread-wrapper">
           <nav className="bread" aria-label="breadcrumb">
             <ol className="breadcrumb">
-              <li className="breadcrumb-item"><a href="/">Home</a></li>
-              <li className="breadcrumb-item"><a href="/Tendency/">Độc lạ</a></li>
+              <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+              <li className="breadcrumb-item"><Link to="/Tendency/">Độc lạ</Link></li>
               <li className="breadcrumb-item active" aria-current="page">{itemsDetail.name}</li>
             </ol>
           </nav>
@@ -45,26 +46,26 @@ class Detail extends Component {
                     Share
                   </div>
                 </div>
-                <a href="/" className="td-icon">
+                <Link to="/" className="td-icon">
                   <div className="td-but-icon">
                     <i className="fab fa-facebook-f" />
                   </div>
-                </a>
-                <a href="/" className="td-icon">
+                </Link>
+                <Link to="/" className="td-icon">
                   <div className="td-but-icon td-1">
                     <i className="fab fa-twitter" />
                   </div>
-                </a>
-                <a href="/" className="td-icon">
+                </Link>
+                <Link to="/" className="td-icon">
                   <div className="td-but-icon td-2">
                     <i className="fab fa-google-plus-g" />
                   </div>
-                </a>
-                <a href="/" className="td-icon">
+                </Link>
+                <Link to="/" className="td-icon">
                   <div className="td-but-icon td-3">
                     <i className="fab fa-pinterest" />
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="detail-content">
@@ -79,7 +80,7 @@ class Detail extends Component {
               </p>
               <p>
                 <strong>Xem thêm:</strong>
-                <a href="/">5 thiết kế nội thất phòng ngủ đơn giản</a>
+                <Link to="/">5 thiết kế nội thất phòng ngủ đơn giản</Link>
               </p>
               <h2>
                 <strong>Sử dụng cửa kính, giấy dán tường và các bức tranh treo tường</strong>
@@ -144,26 +145,26 @@ class Detail extends Component {
                     Share
                   </div>
                 </div>
-                <a href="/" className="td-icon">
+                <Link to="/" className="td-icon">
                   <div className="td-but-icon">
                     <i className="fab fa-facebook-f" />
                   </div>
-                </a>
-                <a href="/" className="td-icon">
+                </Link>
+                <Link to="/" className="td-icon">
                   <div className="td-but-icon td-1">
                     <i className="fab fa-twitter" />
                   </div>
-                </a>
-                <a href="/" className="td-icon">
+                </Link>
+                <Link to="/" className="td-icon">
                   <div className="td-but-icon td-2">
                     <i className="fab fa-google-plus-g" />
                   </div>
-                </a>
-                <a href="/" className="td-icon">
+                </Link>
+                <Link to="/" className="td-icon">
                   <div className="td-but-icon td-3">
                     <i className="fab fa-pinterest" />
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
             <hr />
