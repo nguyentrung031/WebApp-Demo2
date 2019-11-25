@@ -2,8 +2,8 @@ import axios from 'axios';
 import actionType from '../consts/actionType';
 
 export const getData_tips = () => dispatch=> {
-	  //api trang Tips
-		axios.get('/api/tips')
+    //api trang Tips
+    axios.get('/api/tips')
     .then(res =>
       dispatch({
         type: actionType.get_data_Tips,
@@ -12,8 +12,8 @@ export const getData_tips = () => dispatch=> {
     )
 }	
 export const getData_tips_sortdesc = () => dispatch=> {
-	  //api trang Tips
-		axios.get('/api/tips/new_sort_desc')
+    //api trang Tips
+    axios.get('/api/tips/new_sort_desc')
     .then(res =>
       dispatch({
         type: actionType.get_data_Tips_sortDesc,
@@ -22,8 +22,8 @@ export const getData_tips_sortdesc = () => dispatch=> {
     )
 }	
 export const getData_tips_popalarSort = () => dispatch=> {
-	  //api trang Tips
-		axios.get('/api/tips/popalar_sort')
+    //api trang Tips
+    axios.get('/api/tips/popalar_sort')
     .then(res =>
       dispatch({
         type: actionType.get_data_Tips_popalarSort,
