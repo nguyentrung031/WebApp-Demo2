@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
+import {getData_tips_sortdesc, getData_tips_popalarSort} from '../../Store/Action/tips_action';
 import TipsListItem from './TipsListItem';
 import TipsListNewItem from './TipsListNewItem';
 
@@ -9,8 +10,14 @@ class Tips extends Component {
   static propTypes = {
     List: PropTypes.object.isRequired,
   };
+  onClickNewSort = () => {
+    this.props.getData_tips_sortdesc();
+  }
+  onClickPopalarSort = () =>{
+    this.props.getData_tips_popalarSort();
+  } 
   render() {
-    const {itemsTips} = this.props.List;
+    const {itemsTips} = this.props.Tips;
     return (
       <main>
         <div className="container bread-wrapper">
@@ -26,23 +33,14 @@ class Tips extends Component {
             </div>
             <div className="title-wrap-item">
               <div className="wrap-item" id="dropdownMenuButton" data-toggle="dropdown">
-                <small className="dropdown-toggle">Mới nhất <i className="fas fa-angle-down pr-2" /></small>
+                <small className="dropdown-toggle">Mặc định <i className="fas fa-angle-down pr-2" /></small>
               </div>
               <ul className="wrap-drop dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li className="wrap-drop-item">
-                  <Link to="/">Mới nhất</Link>
+                  <Link to="/Tips/" onClick={this.onClickNewSort}>Mới nhất</Link>
                 </li>
                 <li className="wrap-drop-item">
-                  <Link to="/">Tin tiêu biểu</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Phổ biến nhất</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Xem nhiều theo tuần</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Ngẫu nhiên</Link>
+                  <Link to="/Tips/" onClick={this.onClickPopalarSort}>Xem nhiều theo tuần</Link>
                 </li>
               </ul>
             </div>
@@ -126,7 +124,12 @@ class Tips extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    List: state.List
+    List: state.List,
+    Tips: state.Tips
   }
 }
-export default connect(mapStateToProps)(Tips);
+const mapDispatchToProps = {
+  getData_tips_sortdesc, 
+  getData_tips_popalarSort
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Tips);

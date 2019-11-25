@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
+import {getData_strange_poison_sortdesc, getData_strange_poison_popalarSort} from '../../Store/Action/strangePoison_action';
 import SPListItem from './SPListItem';
 import SPListNewItem from './SPListNewItem';
 
@@ -9,8 +10,14 @@ class StrangePoison extends Component {
   static propTypes = {
     List: PropTypes.object.isRequired,
   };
+  onClickNewSort = () => {
+    this.props.getData_strange_poison_sortdesc();
+  }
+  onClickPopalarSort = () =>{
+    this.props.getData_strange_poison_popalarSort();
+  } 
   render() {
-    const {itemsSP} = this.props.List;
+    const {itemsSP} = this.props.StrangePoison;
     return (
       <main>
         <div className="container bread-wrapper">
@@ -26,23 +33,14 @@ class StrangePoison extends Component {
             </div>
             <div className="title-wrap-item">
               <div className="wrap-item" id="dropdownMenuButton" data-toggle="dropdown">
-                <small className="dropdown-toggle">Mới nhất <i className="fas fa-angle-down pr-2" /></small>
+                <small className="dropdown-toggle">Mặc định <i className="fas fa-angle-down pr-2" /></small>
               </div>
               <ul className="wrap-drop dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li className="wrap-drop-item">
-                  <Link to="/">Mới nhất</Link>
+                  <Link to="/StrangePoison/" onClick={this.onClickNewSort}>Mới nhất</Link>
                 </li>
                 <li className="wrap-drop-item">
-                  <Link to="/">Tin tiêu biểu</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Phổ biến nhất</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Xem nhiều theo tuần</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Ngẫu nhiên</Link>
+                  <Link to="/StrangePoison/" onClick={this.onClickPopalarSort}>Xem nhiều theo tuần</Link>
                 </li>
               </ul>
             </div>
@@ -126,7 +124,12 @@ class StrangePoison extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    List: state.List
+    List: state.List,
+    StrangePoison: state.StrangePoison
   }
 }
-export default connect(mapStateToProps)(StrangePoison);
+const mapDispatchToProps = {
+  getData_strange_poison_sortdesc, 
+  getData_strange_poison_popalarSort
+}
+export default connect(mapStateToProps, mapDispatchToProps)(StrangePoison);

@@ -50,7 +50,7 @@ class Header extends Component {
   onScroll(isTop) {
     this.setState({ isTop });
   }
-  handleOnChange = (e) => {
+handleOnChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
@@ -112,9 +112,9 @@ class Header extends Component {
                     </ul>
                   </div>
                   <div className="search-item">
-                  <a href="/" id="search01" className="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
+                  <div className="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
                     <i className="fas fa-search" />
-                  </a>
+                  </div>
                     <div className="dropdow-search dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <form className="form-inline" onSubmit={this.onClickSearch}>
                         <input onChange={this.handleOnChange} className="form-control" name="q" type="search" placeholder="nhập từ khóa" aria-label="Search" />

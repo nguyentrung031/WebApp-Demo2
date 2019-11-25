@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Slider from "react-slick";
 import {Link} from "react-router-dom";
 import HomeSlide from './HomeSlide';
-import { addEmail } from '../../Store/Action/itemAction'
+import { addEmail } from '../../Store/Action/email_action'
 
 class Home extends Component {
   constructor(props) {
@@ -28,6 +28,7 @@ class Home extends Component {
       email: this.state.email
     };
     this.props.addEmail(newItem);
+    alert('Thông tin bạn đã được gửi thành công!');
   }
   render() {
     const settings = {
@@ -40,7 +41,10 @@ class Home extends Component {
       arrows: true,
       lazyLoad: true
     };
-    const {itemsTendency, itemsStyle, itemsTips, itemsPengShui} = this.props.List;
+    const {itemsTips} = this.props.Tips;
+    const {itemsTendency} = this.props.Tendency;
+    const {itemsStyle} = this.props.Style;
+    const {itemsPengShui} = this.props.PengShui;
     return (
       <main>
         {/* section1 mới */}
@@ -104,6 +108,7 @@ class Home extends Component {
                           </div>
                         )
                       }
+                      else return null;
                     })
                   }
                 </div>
@@ -158,6 +163,7 @@ class Home extends Component {
                       </div>
                     )
                   }
+                  else return null;
                 })
               }
               <div className="col-md-4">
@@ -174,6 +180,7 @@ class Home extends Component {
                         </div>
                       )
                     }
+                    else return null;
                   })
                 }
               </div>
@@ -195,12 +202,10 @@ class Home extends Component {
                     <HomeSlide {...value} key={key}/>
                   )
                 }
+                else return null;
               })
             }
             </Slider>
-            {/* <div className="Card-body-01" {...settings} >
-              
-            </div> */}
           </div>
         </section>
         {/* end section 4 doc la */}
@@ -215,7 +220,7 @@ class Home extends Component {
                 <div className="form-group">
                   <label htmlFor="email"></label>
                   <input onChange={this.onchange} type="text" className="form-control" name="email" placeholder="nhập Email"/>
-                  <button onClick={(e) =>this.onSubmit(e)} type="submit" className="btn btn-dark">send</button>
+                  <button onClick={(e) =>this.onSubmit(e)} type="submit" className="btn btn-dark" required="">send</button>
                 </div>
               </div>
               <div className="col-md-8 vattu-body">
@@ -241,6 +246,7 @@ class Home extends Component {
                           </div>
                         )
                       }
+                      else return null;
                     })
                   }
                   <div className="vattu-item-tow">
@@ -261,6 +267,7 @@ class Home extends Component {
                             </div>
                           )
                         }
+                        else return null;
                       })
                     }
                   </div>
@@ -276,7 +283,10 @@ class Home extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    List: state.List,
+    Tips: state.Tips,
+    Tendency: state.Tendency,
+    Style: state.Style,
+    PengShui: state.PengShui,
   }
 }
 const mapDispatchToProps = {

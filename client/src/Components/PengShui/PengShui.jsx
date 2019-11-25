@@ -2,14 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
+import {getData_pengshui_sortdesc, getData_pengshui_popalarSort} from "../../Store/Action/pengshui_action";
 import PengShuiListItem from './PengShuiListItem';
 import PengShuiListNewItem from './PengShuiListNewItem';
 class PengShui extends Component {
   static propTypes = {
     List: PropTypes.object.isRequired,
   };
+  onClickNewSort = () => {
+    this.props.getData_pengshui_sortdesc();
+  }
+  onClickPopalarSort = () =>{
+    this.props.getData_pengshui_popalarSort();
+  } 
   render() {
-    const {itemsPengShui} = this.props.List;
+    const {itemsPengShui} = this.props.PengShui;
     return (
       <main>
         <div className="container bread-wrapper">
@@ -25,23 +32,14 @@ class PengShui extends Component {
             </div>
             <div className="title-wrap-item">
               <div className="wrap-item" id="dropdownMenuButton" data-toggle="dropdown">
-                <small className="dropdown-toggle">Mới nhất <i className="fas fa-angle-down pr-2" /></small>
+                <small className="dropdown-toggle">Mặc định <i className="fas fa-angle-down pr-2" /></small>
               </div>
               <ul className="wrap-drop dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li className="wrap-drop-item">
-                  <Link to="/">Mới nhất</Link>
+                  <Link to="/PengShui/" onClick={this.onClickNewSort}>Mới nhất</Link>
                 </li>
                 <li className="wrap-drop-item">
-                  <Link to="/">Tin tiêu biểu</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Phổ biến nhất</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Xem nhiều theo tuần</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Ngẫu nhiên</Link>
+                  <Link to="/PengShui/" onClick={this.onClickPopalarSort}>Xem nhiều theo tuần</Link>
                 </li>
               </ul>
             </div>
@@ -125,7 +123,12 @@ class PengShui extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    List: state.List
+    List: state.List,
+    PengShui: state.PengShui
   }
 }
-export default connect(mapStateToProps)(PengShui);
+const mapDispatchToProps = {
+  getData_pengshui_sortdesc, 
+  getData_pengshui_popalarSort
+}
+export default connect(mapStateToProps, mapDispatchToProps)(PengShui);

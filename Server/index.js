@@ -2,34 +2,28 @@ const express = require('express')
 var bodyParser = require('body-parser');
 const app = express();
 const _ = require('lodash');
+const tendency = require('./router/api/tendency');
+const style = require('./router/api/style');
+const space = require('./router/api/space');
+const peng_shui = require('./router/api/peng_shui');
+const tips = require('./router/api/tips');
+const supplies = require('./router/api/supplies');
+const strange_poison = require('./router/api/strange_poison');
+const email = require('./router/api/email');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 const Data = require('./Data/Data')
-var DbEmail = require('./Data/DataEmail.js');
 app.get('/', (req, res) => {
   res.send('hello from server!')
 })
-app.get('/api/tendency', (req, res) => {
-  res.json(Data);
-});
-app.get('/api/style', (req, res) => {
-  res.json(Data);
-});
-app.get('/api/space', (req, res) => {
-  res.json(Data);
-});
-app.get('/api/peng_shui', (req, res) => {
-  res.json(Data);
-});
-app.get('/api/tips', (req, res) => {
-  res.json(Data);
-});
-app.get('/api/supplies', (req, res) => {
-  res.json(Data);
-});
-app.get('/api/strange_poison', (req, res) => {
-  res.json(Data);
-});
+app.use('/api/tendency', tendency);
+app.use('/api/style', style);
+app.use('/api/space', space);
+app.use('/api/peng_shui', peng_shui);
+app.use('/api/tips', tips);
+app.use('/api/supplies', supplies);
+app.use('/api/strange_poison', strange_poison);
+app.use('/api/email', email);
 app.get('/api/get_search', (req, res) => {
   var q = req.query.q
   var result = _.filter(Data, (val) => 
@@ -42,19 +36,6 @@ app.get('/api/get_detail/:id', (req, res) => {
   res.json(data);
 });
 
-app.get('/api/get_email', (req, res) => {
-  res.json(DbEmail);
-});
-app.post('/api/add_email', (req,res) => {
-  DbEmail = _.uniq(_.concat(DbEmail, req.body.email));
-  res.json(DbEmail);
-});
-
 app.listen(5000, () => {
   console.log('App listening on port 5000')
-  // app._router.stack.forEach(r => {
-  //   if (r.route && r.route.path) {
-  //     console.log(r.route.path);
-  //   }
-  // });
 })
