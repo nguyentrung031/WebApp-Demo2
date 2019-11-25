@@ -41,7 +41,6 @@ app.get('/api/get_detail/:id', (req, res) => {
   const data = _.find(Data, (val) => val.id == req.params.id);
   res.json(data);
 });
-
 app.get('/api/get_email', (req, res) => {
   res.json(DbEmail);
 });
@@ -49,7 +48,6 @@ app.post('/api/add_email', (req,res) => {
   DbEmail = _.uniq(_.concat(DbEmail, req.body.email));
   res.json(DbEmail);
 });
-
 app.listen(5000, () => {
   console.log('App listening on port 5000')
   // app._router.stack.forEach(r => {

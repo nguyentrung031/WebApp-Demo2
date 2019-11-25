@@ -83,7 +83,6 @@ export const searchData = ((history, name) => dispatch => {
     })
   );
 });
-
 //api add email
 export const addEmail = item => dispatch=> {
   axios.post('/api/add_email', item)

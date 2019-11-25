@@ -107,7 +107,7 @@ class Header extends Component {
                         <NavLink to="/Supplies/" className="nav-link" activeClassName="active">VẬT TƯ</NavLink >
                       </li>
                       <li className="nav-item">
-                        <NavLink to="/StrangePoison/" className="nav-link" activeClassName="active">ĐỘC LẠ</NavLink >
+                        <NavLink to="/StrangePoison/" className="nav-link" activeClassName="active">ĐỘC LẠ</NavLink >r
                       </li>
                     </ul>
                   </div>
