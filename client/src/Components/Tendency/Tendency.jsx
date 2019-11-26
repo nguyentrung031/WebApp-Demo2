@@ -2,14 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
+import {getData_Tendency_newSort, getData_Tendency_popalarSort} from '../../Store/Action/tendency_action';
 import TendencyListNewItem from './TendencyListNewItem';
 import TendencyListItem from './TendencyListItem';
 class Tendency extends Component {
   static propTypes = {
     List: PropTypes.object.isRequired,
   };
+  onClickNewSort = () => {
+    this.props.getData_Tendency_newSort();
+  }
+  onClickPopalarSort = () =>{
+    this.props.getData_Tendency_popalarSort();
+  } 
   render() {
-    const {itemsTendency} = this.props.List;
+    const {itemsTendency} = this.props.Tendency;
     return (
       <main>
         <div className="container bread-wrapper">
@@ -25,23 +32,14 @@ class Tendency extends Component {
             </div>
             <div className="title-wrap-item">
               <div className="wrap-item" id="dropdownMenuButton" data-toggle="dropdown">
-                <small className="dropdown-toggle">Mới nhất <i className="fas fa-angle-down pr-2" /></small>
+                <small className="dropdown-toggle">Mặc định <i className="fas fa-angle-down pr-2" /></small>
               </div>
               <ul className="wrap-drop dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li className="wrap-drop-item">
-                  <Link to="/">Mới nhất</Link>
+                  <Link to="/Tendency/" onClick={this.onClickNewSort} >Mới nhất</Link>
                 </li>
                 <li className="wrap-drop-item">
-                  <Link to="/">Tin tiêu biểu</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Phổ biến nhất</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Xem nhiều theo tuần</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Ngẫu nhiên</Link>
+                  <Link to="/Tendency/" onClick={this.onClickPopalarSort}>Xem nhiều theo tuần</Link>
                 </li>
               </ul>
             </div>
@@ -125,7 +123,12 @@ class Tendency extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    List: state.List
+    List: state.List,
+    Tendency: state.Tendency
   }
 }
-export default connect(mapStateToProps)(Tendency);
+const mapDispatchToProps = {
+  getData_Tendency_newSort,
+  getData_Tendency_popalarSort
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Tendency);

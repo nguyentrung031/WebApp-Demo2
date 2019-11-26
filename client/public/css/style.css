@@ -222,6 +222,9 @@ li.nav-item:hover a.nav-link:before {
 .nav-body.up .search-item {
   right: 7rem;
 }
+div#dropdownMenuButton {
+  cursor: pointer;
+}
 /* ---------------------MAIN-------------- */
 /* ---------Section1 new-------- */
 ul.wrap-drop.dropdown-menu.show {

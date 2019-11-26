@@ -2,14 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
+import {getData_style_sortdesc, getData_style_popalarSort} from '../../Store/Action/style_action';
 import StyleLisItem from './StyleLisItem';
 import StyleListNewItem from './StyleListNewItem';
 class Style extends Component {
   static propTypes = {
     List: PropTypes.object.isRequired,
   };
+  onClickNewSort = () => {
+    this.props.getData_style_sortdesc();
+  }
+  onClickPopalarSort = () =>{
+    this.props.getData_style_popalarSort();
+  } 
   render() {
-    const {itemsStyle} = this.props.List;
+    const {itemsStyle} = this.props.Style;
     return (
       <main>
         <div className="container bread-wrapper">
@@ -25,23 +32,14 @@ class Style extends Component {
             </div>
             <div className="title-wrap-item">
               <div className="wrap-item" id="dropdownMenuButton" data-toggle="dropdown">
-                <small className="dropdown-toggle">Mới nhất <i className="fas fa-angle-down pr-2" /></small>
+                <small className="dropdown-toggle">Mặc định <i className="fas fa-angle-down pr-2" /></small>
               </div>
               <ul className="wrap-drop dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li className="wrap-drop-item">
-                  <Link to="/">Mới nhất</Link>
+                  <Link to="/Style/" onClick={this.onClickNewSort}>Mới nhất</Link>
                 </li>
                 <li className="wrap-drop-item">
-                  <Link to="/">Tin tiêu biểu</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Phổ biến nhất</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Xem nhiều theo tuần</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Ngẫu nhiên</Link>
+                  <Link to="/Style/" onClick={this.onClickPopalarSort}>Xem nhiều theo tuần</Link>
                 </li>
               </ul>
             </div>
@@ -125,7 +123,12 @@ class Style extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    List: state.List
+    List: state.List,
+    Style: state.Style
   }
 }
-export default connect(mapStateToProps)(Style);
+const mapDispatchToProps = {
+  getData_style_sortdesc,
+  getData_style_popalarSort
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Style);

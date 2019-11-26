@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
+import {getData_space_sortdesc, getData_space_popalarSort} from "../../Store/Action/space_action";
 import SpaceListNewItem from './SpaceListNewItem';
 import SpaceListItem from './SpaceListItem';
 
@@ -9,8 +10,14 @@ class Space extends Component {
   static propTypes = {
     List: PropTypes.object.isRequired,
   };
+  onClickNewSort = () => {
+    this.props.getData_space_sortdesc();
+  }
+  onClickPopalarSort = () =>{
+    this.props.getData_space_popalarSort();
+  } 
   render() {
-    const {itemsSpace} = this.props.List;
+    const {itemsSpace} = this.props.Space;
     return (
       <main>
         <div className="container bread-wrapper">
@@ -26,23 +33,14 @@ class Space extends Component {
             </div>
             <div className="title-wrap-item">
               <div className="wrap-item" id="dropdownMenuButton" data-toggle="dropdown">
-                <small className="dropdown-toggle">Mới nhất <i className="fas fa-angle-down pr-2" /></small>
+                <small className="dropdown-toggle">Mặc định <i className="fas fa-angle-down pr-2" /></small>
               </div>
               <ul className="wrap-drop dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li className="wrap-drop-item">
-                  <Link to="/">Mới nhất</Link>
+                  <Link to="/Space/" onClick={this.onClickNewSort}>Mới nhất</Link>
                 </li>
                 <li className="wrap-drop-item">
-                  <Link to="/">Tin tiêu biểu</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Phổ biến nhất</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Xem nhiều theo tuần</Link>
-                </li>
-                <li className="wrap-drop-item">
-                  <Link to="/">Ngẫu nhiên</Link>
+                  <Link to="/Space/" onClick={this.onClickPopalarSort}>Xem nhiều theo tuần</Link>
                 </li>
               </ul>
             </div>
@@ -126,7 +124,12 @@ class Space extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    List: state.List
+    List: state.List,
+    Space: state.Space
   }
 }
-export default connect(mapStateToProps)(Space);
+const mapDispatchToProps = {
+  getData_space_sortdesc,
+  getData_space_popalarSort
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Space);

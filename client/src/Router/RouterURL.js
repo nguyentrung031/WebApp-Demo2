@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router,Switch, Route } from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import Home from '../Components/Home/Home';
 import Tendency from '../Components/Tendency/Tendency';
 import Style from '../Components/Style/Style';
