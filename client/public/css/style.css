@@ -225,6 +225,12 @@ li.nav-item:hover a.nav-link:before {
 div#dropdownMenuButton {
   cursor: pointer;
 }
+.fas.fa-angle-double-right,
+.fa-angle-right,
+.fa-angle-left,
+.fa-angle-double-left{
+  opacity: 0.7;
+}
 /* ---------------------MAIN-------------- */
 /* ---------Section1 new-------- */
 ul.wrap-drop.dropdown-menu.show {

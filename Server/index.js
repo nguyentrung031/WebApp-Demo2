@@ -2,6 +2,7 @@ const express = require('express')
 var bodyParser = require('body-parser');
 const app = express();
 const _ = require('lodash');
+const cors = require('cors');
 const tendency = require('./router/api/tendency');
 const style = require('./router/api/style');
 const space = require('./router/api/space');
@@ -12,6 +13,7 @@ const strange_poison = require('./router/api/strange_poison');
 const email = require('./router/api/email');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
 const Data = require('./Data/Data')
 app.get('/', (req, res) => {
   res.send('hello from server!')
