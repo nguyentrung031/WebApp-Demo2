@@ -34,7 +34,7 @@ class Tendency extends Component {
   render() {
     const {itemsTendency, pager, pageOfItems} = this.props.Tendency;
     return (
-      <main>~~
+      <main>
         <div className="container bread-wrapper">
           <nav className="bread" aria-label="breadcrumb">
             <ol className="breadcrumb">
