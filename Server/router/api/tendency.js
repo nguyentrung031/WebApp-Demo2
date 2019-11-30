@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const _ = require('lodash');
+const paginate = require('jw-paginate');
 var Data = require('../../Data/Data');
 
 //@router GET api/tendency
@@ -20,4 +21,12 @@ router.get('/popalar_sort', (req, res) => {
   var sortData = _.sortBy(Data, [o => o.view]).reverse();
   res.json(sortData);
 });
-module.exports = router;
+//@router paged items route
+router.get('/items', (req, res, next) => {
+  const page = parseInt(req.query.page) || 1;
+  const pageSize = 5;
+  const pager = paginate(Data.length, page, pageSize);
+  const pageOfItems = Data.slice(pager.startIndex, pager.endIndex + 1);
+  return res.json({ pager, pageOfItems });
+});
+module.exports = router

@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
-import {getData_Tendency_newSort, getData_Tendency_popalarSort} from '../../Store/Action/tendency_action';
+import {getData_Tendency_newSort, getData_Tendency_popalarSort, getData_Tendency_items} from '../../Store/Action/tendency_action';
 import TendencyListNewItem from './TendencyListNewItem';
 import TendencyListItem from './TendencyListItem';
 class Tendency extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pager: {},
+    }
+  }
+  
   static propTypes = {
     List: PropTypes.object.isRequired,
   };
@@ -14,11 +21,20 @@ class Tendency extends Component {
   }
   onClickPopalarSort = () =>{
     this.props.getData_Tendency_popalarSort();
-  } 
+  }
+  componentDidMount() {
+    this.loadPage();
+  }
+  componentDidUpdate() {
+    this.loadPage(); 
+  }
+  loadPage() {
+    this.props.getData_Tendency_items();
+  }
   render() {
-    const {itemsTendency} = this.props.Tendency;
+    const {itemsTendency, pager, pageOfItems} = this.props.Tendency;
     return (
-      <main>
+      <main>~~
         <div className="container bread-wrapper">
           <nav className="bread" aria-label="breadcrumb">
             <ol className="breadcrumb">
@@ -94,26 +110,33 @@ class Tendency extends Component {
         <section className="xuhuong">
           <div className="container">
             {
-             itemsTendency.map((value, key) => 
+             pageOfItems.map((value, key) => 
               <TendencyListItem {...value} key={key}/>
               )
             }
             <nav aria-label="Page navigation example">
-              <ul className="pagination" id="navi-01">
-                <li className="page-item next">
-                  <Link className="page-link" to="/" aria-label="Previous">
-                    <span aria-hidden="true">«</span>
-                  </Link>
-                </li>
-                <li className="page-item page-01 naviactive"><Link className="page-link" to="/">1</Link></li>
-                <li className="page-item page-01"><Link className="page-link" to="/">2</Link></li>
-                <li className="page-item page-01"><Link className="page-link" to="/">3</Link></li>
-                <li className="page-item">
-                  <Link className="page-link next" to="/" aria-label="Next">
-                    <span aria-hidden="true">»</span>
-                  </Link>
-                </li>
-              </ul>
+              {
+                pager.pages && pager.pages.length &&
+                  <ul className="pagination">
+                    <li className={`page-item first-item ${pager.currentPage === 1 ? 'disabled' : ''}`}>
+                      <Link to={{ search: `?page=1` }} className="page-link"><i className="fas fa-angle-double-left"></i></Link>
+                    </li>
+                    <li className={`page-item previous-item ${pager.currentPage === 1 ? 'disabled' : ''}`}>
+                      <Link to={{ search: `?page=${pager.currentPage - 1}` }} className="page-link"><i className="fas fa-angle-left"></i></Link>
+                    </li>
+                    {pager.pages.map(page =>
+                      <li key={page} className={`page-item number-item ${pager.currentPage === page ? 'active' : ''}`}>
+                        <Link to={{ search: `?page=${page}` }} className="page-link">{page}</Link>
+                      </li>
+                    )}
+                    <li className={`page-item next-item ${pager.currentPage === pager.totalPages ? 'disabled' : ''}`}>
+                      <Link to={{ search: `?page=${pager.currentPage + 1}` }} className="page-link"><i className="fas fa-angle-right"></i></Link>
+                    </li>
+                    <li className={`page-item last-item ${pager.currentPage === pager.totalPages ? 'disabled' : ''}`}>
+                      <Link to={{ search: `?page=${pager.totalPages}` }} className="page-link"><i className="fas fa-angle-double-right"></i></Link>
+                    </li>
+                </ul>
+              }              
             </nav>
           </div>
         </section>
@@ -129,6 +152,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = {
   getData_Tendency_newSort,
-  getData_Tendency_popalarSort
+  getData_Tendency_popalarSort,
+  getData_Tendency_items
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Tendency);

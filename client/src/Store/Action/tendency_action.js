@@ -31,3 +31,17 @@ export const getData_Tendency_popalarSort = () => dispatch=> {
      })
    )
 }
+//action items phân trang
+export const getData_Tendency_items = () => dispatch=> {
+  const params = new URLSearchParams(window.location.search);
+  const page = parseInt(params.get('page')) || 1;
+    axios.get(`/api/tendency/items?page=${page}`)
+    .then(res =>
+      dispatch({
+       type: actionType.get_data_tendency_items,
+       payloadTendencypager: res.data.pager,
+       payloadTendencypageof: res.data.pageOfItems,
+    })
+  )
+}
+ 

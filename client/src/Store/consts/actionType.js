@@ -1,5 +1,6 @@
 export default {
   get_data_tendency: 'GET_DATA_TENDENTCY',
+  get_data_tendency_items: 'GET_DATA_TENDENTCY_ITEMS',
   get_data_tendency_sortDest: 'GET_DATA_TENDENTCY_SORTDEST',
   get_data_tendency_popalarSort: 'GET_DATA_TENDENTCY_POPALARSORT',
   get_data_style: 'GET_DATA_STYLE',
